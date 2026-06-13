@@ -262,75 +262,7 @@ p{margin:0 0 1em}
 </head>
 <body>
 
-<!-- ========== PASSWORD GATE ========== -->
-<div id="han-gate" style="position:fixed;inset:0;z-index:9999;background:#0A0A0A;display:flex;align-items:center;justify-content:center;font-family:'Inter Tight','Inter',-apple-system,sans-serif;color:#ECECEC;padding:24px">
-  <div style="max-width:520px;width:100%;text-align:left">
-    <div style="display:flex;align-items:center;gap:18px;margin-bottom:36px">
-      <div style="width:64px;height:64px;background:#E6007E;display:flex;align-items:flex-start;padding:6px;flex-shrink:0">
-        <div style="font-family:'Inter Tight','Inter',sans-serif;color:#0A0A0A;font-weight:900;font-size:22px;line-height:.78;letter-spacing:-.04em;text-transform:uppercase;width:100%">
-          <span style="display:block;transform:scaleY(1.18);transform-origin:left top">HARD</span>
-          <span style="display:block;transform:scaleY(1.18);transform-origin:left top">AS</span>
-          <span style="display:block;transform:scaleY(1.18);transform-origin:left top">NAILS</span>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:#E6007E;margin-bottom:6px">Working paper · 2026</div>
-        <div style="font-family:'Inter Tight','Inter',sans-serif;font-weight:900;font-size:26px;letter-spacing:-.02em;color:#fff">Hard As Nails. The Evidence</div>
-      </div>
-    </div>
-    <p style="color:#A8A8A8;line-height:1.6;font-size:16px;font-weight:300;margin:0 0 28px;font-family:'Inter','Inter Tight',sans-serif">A protected preview for colleagues, partners and participants. Enter the password to read the working paper. If you need it and don't have it, drop us an email.</p>
-    <form id="han-gate-form" autocomplete="off" novalidate style="display:flex;flex-direction:column;gap:10px;font-family:'Inter','Inter Tight',sans-serif">
-      <input id="han-gate-input" type="password" placeholder="Password" autofocus aria-label="Password" style="padding:16px 20px;border:1px solid #2E2E2E;background:#141414;color:#fff;font-family:inherit;font-size:15px;outline:none;letter-spacing:.04em;transition:border-color .15s ease" />
-      <button type="submit" style="padding:16px 20px;background:#E6007E;color:#fff;font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;border:none;cursor:pointer;transition:filter .15s ease">Enter</button>
-      <p id="han-gate-err" role="alert" style="color:#E6007E;font-size:13px;margin:8px 0 0;visibility:hidden;font-family:'Inter','Inter Tight',sans-serif">Wrong password. Give it another go.</p>
-    </form>
-    <p style="margin:36px 0 0;color:#7A7A7A;font-size:13px;font-family:'Inter','Inter Tight',sans-serif"><a href="mailto:sam@samconniff.com?subject=Hard As Nails preview password request" style="color:#A8A8A8">Request the password</a> · <a href="https://hard-as-nails.com/" style="color:#A8A8A8" target="_blank" rel="noopener">hard-as-nails.com</a></p>
-  </div>
-</div>
-<script>
-(function(){
-  // Soft client-side gate — keeps the page out of casual reach and off search engines.
-  // Not server-enforced: anyone who views source can read this. Don't use for sensitive data.
-  var PASS_HASH = 'b8e96ee2'; // simple obfuscated check, see below
-  var KEY = 'han-evidence-unlocked-v1';
-  function h(s){var x=0;for(var i=0;i<s.length;i++){x=((x<<5)-x+s.charCodeAt(i))|0;}return ('00000000'+(x>>>0).toString(16)).slice(-8);}
-  // Note: hash of 'hardasnails26' below — kept obfuscated to discourage casual reading
-  var gate = document.getElementById('han-gate');
-  function unlock(){
-    try{sessionStorage.setItem(KEY,'1');}catch(e){}
-    if(gate && gate.parentNode) gate.parentNode.removeChild(gate);
-    document.body.style.overflow='';
-  }
-  try{
-    if(sessionStorage.getItem(KEY)==='1'){ unlock(); return; }
-  }catch(e){}
-  document.body.style.overflow='hidden';
-  var form = document.getElementById('han-gate-form');
-  var input = document.getElementById('han-gate-input');
-  var err = document.getElementById('han-gate-err');
-  // Compute live: if PASS_HASH matches the hash of typed password (lowercased trimmed), unlock
-  // Configured target hash:
-  PASS_HASH = h('hardasnails26');
-  setTimeout(function(){ try{ input.focus(); }catch(e){} }, 80);
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var v = (input.value || '').trim().toLowerCase();
-    if(h(v) === PASS_HASH){ unlock(); }
-    else{
-      err.style.visibility='visible';
-      input.style.borderColor = '#E6007E';
-      input.value = '';
-      try{ input.focus(); }catch(_){ }
-    }
-  });
-  // Tell search engines: don't index
-  var meta = document.createElement('meta');
-  meta.name = 'robots';
-  meta.content = 'noindex, nofollow';
-  (document.head || document.documentElement).appendChild(meta);
-})();
-</script>
-<!-- ========== END PASSWORD GATE ========== -->
+
 
 <!-- HARD AS NAILS LOGO MARK (inline SVG so it scales crisply) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
