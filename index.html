@@ -65,7 +65,19 @@ p{margin:0 0 1em}
 
 /* TOP BAR */
 .topbar{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(14px);background:rgba(10,10,10,.78);border-bottom:1px solid var(--line-soft)}
-.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;max-width:var(--max);margin:0 auto;gap:24px}
+.topbar-inner{display:flex;align-items:center;justify-content:center;padding:10px 28px;max-width:var(--max);margin:0 auto;gap:24px}
+/* Shared chrome (matches hard-as-nails.com nav) */
+.chrome-row{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 28px;max-width:var(--max);margin:0 auto;border-bottom:1px solid var(--line-soft)}
+.chrome-wordmark{display:flex;align-items:center;gap:12px;font-family:'Inter Tight',Inter,sans-serif;font-weight:900;font-size:17px;letter-spacing:.06em;text-transform:uppercase;color:#fff;text-decoration:none}
+.chrome-wordmark .logo{width:28px;height:28px;flex:0 0 28px}
+.chrome-wordmark em{font-style:normal;color:var(--pink)}
+.chrome-right{display:flex;align-items:center;gap:20px}
+.chrome-navlink{font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.chrome-navlink:hover{color:#fff}
+.chrome-navlink.active{color:#fff;border-bottom-color:var(--pink)}
+.chrome-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:var(--pink);color:#fff;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;box-shadow:0 6px 28px rgba(230,0,126,.28);transition:filter .15s ease}
+.chrome-btn:hover{filter:brightness(1.15)}
+@media(max-width:560px){.chrome-navlink{display:none}}
 .brand-mark{display:flex;align-items:center;gap:14px;font-family:'Inter Tight',Inter,sans-serif;font-weight:900;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--pink)}
 .brand-mark .logo{width:36px;height:36px;flex:0 0 36px}
 .nav{display:flex;gap:30px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
@@ -278,11 +290,18 @@ p{margin:0 0 1em}
 </svg>
 
 <header class="topbar">
-  <div class="topbar-inner">
-    <div class="brand-mark">
-      <svg class="logo" aria-label="Hard As Nails"><use href="#han-mark"/></svg>
-      <span>Hard As Nails</span>
+  <!-- Shared chrome row: identical across hard-as-nails.com and this annex -->
+  <div class="chrome-row">
+    <a class="chrome-wordmark" href="https://hard-as-nails.com/" aria-label="Hard As Nails home">
+      <svg class="logo" aria-hidden="true"><use href="#han-mark"/></svg>
+      <span>Hard As Nails<em>.</em></span>
+    </a>
+    <div class="chrome-right">
+      <a class="chrome-navlink active" href="/" aria-current="page">Research</a>
+      <a class="chrome-btn" href="https://sam774431.typeform.com/to/NxARyBNf" target="_blank" rel="noopener">Sign up free →</a>
     </div>
+  </div>
+  <div class="topbar-inner">
     <nav class="nav">
       <a href="#numbers">Headline numbers</a>
       <a href="#finding">Expectation Gap</a>
@@ -797,6 +816,10 @@ p{margin:0 0 1em}
         <p class="muted" style="font-style:italic">Working paper: "The Expectation Gap." Yet to be submitted for peer review.</p>
       </div>
     </div>
+    <p style="border-top:1px solid var(--line-soft);margin-top:28px;padding-top:18px;font-size:13px;color:var(--text-dim)">Brave Males Great Nails CIC, company number 17127621. Surplus funds nominated to CALM. ·
+      <a href="https://hard-as-nails.com/privacy/">Privacy</a> ·
+      <a href="https://www.instagram.com/hardnaascampaign" target="_blank" rel="noopener">Instagram</a> ·
+      <a href="https://hard-as-nails.com/">hard-as-nails.com</a></p>
   </div>
 </footer>
 
