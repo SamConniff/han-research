@@ -1,0 +1,720 @@
+<title>Two Fingers Up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap">
+
+<style>
+/* ── Hard As Nails · creative direction board ──────────────────────────
+   Single visual world by intent: two-colour print on black.
+   Every colour is declared explicitly so the page holds on any host ground. */
+
+:root{
+  --ink:        #0A0709;   /* near-black, warm/red bias — not pure #000 */
+  --ink-raise:  #161014;   /* raised panel */
+  --ink-edge:   #2A1F26;   /* hairline */
+  --paper:      #F3ECEF;   /* off-white, pink bias */
+  --paper-dim:  #C6B8BF;
+  --grey:       #8B7C84;   /* metadata grey, pink bias */
+  --rhodamine:  #E6007E;   /* the brand pink — from the live site */
+  --pink-hot:   #FF338F;
+  --pink-deep:  #C8006D;
+  --acid:       #E4FF3D;   /* "smiley yellow" — a participant's own words */
+
+  --measure: 64ch;
+  --gutter: clamp(20px, 5vw, 64px);
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin:0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family:'Newsreader', Georgia, 'Times New Roman', serif;
+  font-size: clamp(17px, 1.05vw + 14px, 19px);
+  line-height:1.62;
+  font-optical-sizing:auto;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Fine halftone tint over the whole page — the print conceit, barely there */
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image: radial-gradient(circle at center, rgba(230,0,126,.35) 0.7px, transparent 0.9px);
+  background-size: 5px 5px;
+  opacity:.22;
+}
+
+.wrap{ position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:0 var(--gutter); }
+
+/* ── type roles ─────────────────────────────────────────── */
+.display{
+  font-family:'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  font-variation-settings:'wdth' 118, 'wght' 850;
+  text-transform:uppercase;
+  line-height:.92;
+  letter-spacing:-.015em;
+  text-wrap:balance;
+  margin:0;
+}
+.meta{
+  font-family:'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--grey);
+  font-weight:400;
+}
+
+a{ color:var(--pink-hot); text-underline-offset:3px; text-decoration-thickness:1px; }
+a:hover{ color:var(--paper); background:var(--rhodamine); text-decoration:none; }
+a:focus-visible{ outline:2px solid var(--acid); outline-offset:2px; }
+
+/* ── masthead ───────────────────────────────────────────── */
+.masthead{
+  padding: clamp(48px,7vw,90px) 0 clamp(36px,5vw,56px);
+  border-bottom:1px solid var(--ink-edge);
+}
+.masthead .meta{ display:block; margin-bottom:clamp(28px,5vw,52px); color:var(--rhodamine); }
+.masthead h1{
+  font-size: clamp(58px, 15vw, 176px);
+  font-variation-settings:'wdth' 122, 'wght' 900;
+}
+.masthead h1 em{
+  font-style:normal;
+  color:var(--rhodamine);
+  -webkit-text-stroke:0;
+}
+.standfirst{
+  max-width:var(--measure);
+  margin: clamp(24px,3.5vw,38px) 0 0;
+  font-size:1.14em;
+  color:var(--paper);
+}
+.standfirst strong{ font-weight:600; color:var(--paper); box-shadow:inset 0 -.42em 0 rgba(230,0,126,.45); }
+
+.specstrip{
+  display:flex; flex-wrap:wrap; gap:0;
+  margin-top:clamp(32px,4.5vw,48px);
+  border:1px solid var(--ink-edge);
+}
+.specstrip div{ flex:1 1 170px; padding:14px 16px; border-right:1px solid var(--ink-edge); }
+.specstrip div:last-child{ border-right:0; }
+.specstrip b{
+  display:block; margin-top:5px;
+  font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 100,'wght' 700;
+  font-size:14px; letter-spacing:.01em; text-transform:none; color:var(--paper);
+}
+
+/* ── sections ───────────────────────────────────────────── */
+section{ padding: clamp(56px,8vw,104px) 0; border-bottom:1px solid var(--ink-edge); }
+.sechead{ display:flex; align-items:baseline; gap:16px; margin-bottom:clamp(28px,4vw,44px); flex-wrap:wrap; }
+.sechead h2{
+  font-family:'Archivo',sans-serif;
+  font-variation-settings:'wdth' 112,'wght' 800;
+  text-transform:uppercase;
+  font-size:clamp(28px,4.4vw,52px);
+  line-height:1;
+  letter-spacing:-.01em;
+  margin:0;
+  text-wrap:balance;
+}
+.sechead .meta{ padding-bottom:3px; }
+.lede{ max-width:var(--measure); margin:0 0 clamp(24px,3vw,36px); color:var(--paper-dim); }
+p{ max-width:var(--measure); }
+.body-col > p + p{ margin-top:1.05em; }
+
+/* ── verdict cards ──────────────────────────────────────── */
+.verdicts{ display:grid; gap:1px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); background:var(--ink-edge); border:1px solid var(--ink-edge); }
+.verdict{ background:var(--ink); padding:clamp(22px,2.6vw,30px); }
+.verdict h3{
+  font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 100,'wght' 800;
+  text-transform:uppercase; font-size:19px; letter-spacing:.02em; margin:14px 0 10px;
+}
+.verdict p{ font-size:.94em; margin:0; color:var(--paper-dim); max-width:none; }
+.chip{
+  display:inline-block; font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700;
+  letter-spacing:.13em; text-transform:uppercase; padding:5px 9px;
+}
+.chip.yes{ background:var(--rhodamine); color:var(--paper); }
+.chip.but{ background:transparent; color:var(--acid); border:1px solid var(--acid); }
+
+.callout{
+  margin-top:clamp(32px,4vw,48px);
+  border-left:5px solid var(--rhodamine);
+  padding:clamp(20px,2.6vw,28px) clamp(20px,2.6vw,32px);
+  background:var(--ink-raise);
+}
+.callout h3{
+  font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 105,'wght' 800;
+  text-transform:uppercase; font-size:clamp(18px,2.2vw,24px); margin:0 0 12px; letter-spacing:.01em;
+}
+.callout p{ margin:0 0 .9em; max-width:var(--measure); }
+.callout p:last-child{ margin-bottom:0; }
+
+/* ── gesture compare ────────────────────────────────────── */
+.compare{ display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); }
+.panel{ border:1px solid var(--ink-edge); padding:clamp(20px,2.4vw,28px); background:var(--ink-raise); }
+.panel.kill{ border-color:var(--ink-edge); }
+.panel.keep{ border-color:var(--rhodamine); }
+.panel h3{
+  font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 100,'wght' 800;
+  text-transform:uppercase; font-size:17px; letter-spacing:.03em; margin:0 0 6px;
+}
+.panel.kill h3{ color:var(--grey); }
+.panel.keep h3{ color:var(--rhodamine); }
+.panel p{ font-size:.94em; color:var(--paper-dim); max-width:none; margin:0; }
+.panel .glyph{
+  font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 118,'wght' 900;
+  font-size:clamp(34px,5vw,54px); line-height:1; margin:0 0 14px; text-transform:uppercase;
+}
+.panel.kill .glyph{ color:var(--ink-edge); }
+.panel.keep .glyph{ color:var(--paper); }
+
+.split{ display:grid; gap:1px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); background:var(--ink-edge); border:1px solid var(--ink-edge); margin-top:28px; }
+.split > div{ background:var(--ink); padding:clamp(20px,2.4vw,28px); }
+.split h4{
+  font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 100,'wght' 800;
+  text-transform:uppercase; font-size:15px; letter-spacing:.04em; margin:10px 0 10px; color:var(--paper);
+}
+.split ul{ margin:0; padding-left:1.1em; font-size:.93em; color:var(--paper-dim); }
+.split li{ margin-bottom:.45em; }
+.split li::marker{ color:var(--rhodamine); }
+
+/* ── palette ────────────────────────────────────────────── */
+.swatches{ display:grid; gap:1px; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); background:var(--ink-edge); border:1px solid var(--ink-edge); }
+.sw{ padding:0; background:var(--ink); }
+.sw .chipfill{ height:104px; display:block; }
+.sw .info{ padding:14px 16px 18px; }
+.sw b{
+  display:block; font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 100,'wght' 800;
+  text-transform:uppercase; font-size:13px; letter-spacing:.05em; margin-bottom:5px;
+}
+.sw span{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--grey); display:block; }
+.sw p{ font-size:.83em; color:var(--paper-dim); margin:9px 0 0; max-width:none; line-height:1.45; }
+
+.halftone-demo{
+  margin-top:28px; height:170px; border:1px solid var(--ink-edge);
+  background-color:var(--ink);
+  background-image:
+    radial-gradient(circle at 18% 50%, var(--rhodamine) 0 30%, transparent 31%),
+    repeating-radial-gradient(circle at center, var(--rhodamine) 0 1.6px, transparent 1.7px 6px);
+  background-size: 100% 100%, 9px 9px;
+  position:relative; overflow:hidden;
+}
+.halftone-demo::after{
+  content:"ONE PLATE OF BLACK. ONE PLATE OF PINK. NOTHING ELSE.";
+  position:absolute; left:16px; bottom:14px; right:16px;
+  font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 108,'wght' 800;
+  font-size:clamp(13px,2.1vw,20px); text-transform:uppercase; letter-spacing:.02em; color:var(--paper);
+  mix-blend-mode:difference;
+}
+
+/* ── hundred men grid ───────────────────────────────────── */
+.hundred{
+  display:grid; grid-template-columns:repeat(10,1fr); gap:3px;
+  margin:0 0 26px; border:1px solid var(--ink-edge); padding:3px; background:var(--ink-raise);
+}
+.hundred i{ display:block; aspect-ratio:1/1; background-color:#000; position:relative; overflow:hidden; }
+.hundred i::after{
+  content:""; position:absolute; left:50%; bottom:14%; transform:translateX(-50%);
+  width:34%; height:16%; background:var(--rhodamine); border-radius:40% 40% 18% 18%;
+}
+.specs{ display:grid; gap:1px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); background:var(--ink-edge); border:1px solid var(--ink-edge); }
+.specs > div{ background:var(--ink); padding:clamp(20px,2.4vw,28px); }
+.specs h4{
+  font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 100,'wght' 800;
+  text-transform:uppercase; font-size:15px; letter-spacing:.04em; margin:10px 0 12px;
+}
+.specs ol{ margin:0; padding-left:1.25em; font-size:.93em; color:var(--paper-dim); }
+.specs ol li{ margin-bottom:.5em; }
+.specs ol li::marker{ color:var(--rhodamine); font-family:'JetBrains Mono',monospace; font-size:.8em; }
+
+/* ── reference board ────────────────────────────────────── */
+.lane{ margin-bottom:clamp(40px,5vw,60px); }
+.lane:last-child{ margin-bottom:0; }
+.lanehead{ border-top:2px solid var(--rhodamine); padding-top:12px; margin-bottom:22px; }
+.lanehead h3{
+  font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 108,'wght' 800;
+  text-transform:uppercase; font-size:clamp(20px,2.8vw,30px); margin:6px 0 8px; line-height:1.02; letter-spacing:-.005em;
+}
+.lanehead p{ color:var(--paper-dim); font-size:.95em; margin:0; }
+
+.refs{ display:grid; gap:1px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); background:var(--ink-edge); border:1px solid var(--ink-edge); }
+.ref{ background:var(--ink); padding:clamp(18px,2.2vw,26px); display:flex; gap:18px; align-items:flex-start; }
+.ref .label{
+  --disc: var(--rhodamine);
+  flex:0 0 68px; width:68px; height:68px; border-radius:50%;
+  background: radial-gradient(circle at 50% 50%, var(--ink) 0 5.5px, var(--disc) 6px);
+  color:#0A0709;
+  display:flex; align-items:flex-start; justify-content:center; padding-top:9px;
+  font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700; letter-spacing:.06em;
+}
+.ref .label.b{ --disc: var(--paper); }
+.ref .label.c{ --disc: var(--acid); }
+.ref .txt{ min-width:0; }
+.ref h4{
+  font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 100,'wght' 800;
+  text-transform:uppercase; font-size:15px; letter-spacing:.02em; margin:0 0 3px; line-height:1.15;
+}
+.ref .credit{ font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--grey); letter-spacing:.04em; line-height:1.5; display:block; margin-bottom:10px; }
+.ref p{ font-size:.9em; color:var(--paper-dim); margin:0 0 10px; max-width:none; line-height:1.5; }
+.ref .take{ color:var(--paper); }
+.ref .take b{ color:var(--rhodamine); font-family:'Archivo',sans-serif; font-variation-settings:'wght' 800; font-size:.82em; letter-spacing:.08em; text-transform:uppercase; }
+.ref a{ font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; }
+
+.imgnote{
+  border:1px dashed var(--ink-edge); padding:16px 18px; margin-bottom:clamp(30px,4vw,42px);
+  font-size:.9em; color:var(--paper-dim); max-width:none;
+}
+.imgnote b{ color:var(--paper); }
+
+/* ── exclusions ─────────────────────────────────────────── */
+.nots{ display:grid; gap:1px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); background:var(--ink-edge); border:1px solid var(--ink-edge); }
+.not{ background:var(--ink); padding:22px; }
+.not b{
+  display:block; font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 100,'wght' 800;
+  text-transform:uppercase; font-size:14px; letter-spacing:.03em; margin-bottom:8px;
+  color:var(--paper); text-decoration:line-through; text-decoration-color:var(--rhodamine); text-decoration-thickness:2px;
+}
+.not p{ font-size:.88em; color:var(--paper-dim); margin:0; max-width:none; line-height:1.5; }
+
+/* ── facts ──────────────────────────────────────────────── */
+.facts{ display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+.fact{ border-top:1px solid var(--ink-edge); padding-top:18px; }
+.fact .num{
+  font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 118,'wght' 900;
+  font-size:clamp(38px,5.5vw,62px); line-height:.9; color:var(--rhodamine); display:block; margin-bottom:10px;
+}
+.fact .num.dead{ color:var(--ink-edge); }
+.fact p{ font-size:.93em; color:var(--paper-dim); max-width:none; margin:0; }
+.fact p b{ color:var(--paper); }
+
+/* ── next ───────────────────────────────────────────────── */
+.next{ counter-reset:n; display:grid; gap:1px; background:var(--ink-edge); border:1px solid var(--ink-edge); }
+.next > div{ background:var(--ink); padding:clamp(18px,2.2vw,26px); display:flex; gap:20px; align-items:baseline; }
+.next > div::before{
+  counter-increment:n; content:counter(n,decimal-leading-zero);
+  font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--rhodamine); font-weight:700; flex:0 0 auto;
+}
+.next h4{ font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 100,'wght' 800; text-transform:uppercase; font-size:15px; letter-spacing:.03em; margin:0 0 6px; }
+.next p{ font-size:.92em; color:var(--paper-dim); margin:0; max-width:none; }
+
+footer{ padding:clamp(40px,6vw,72px) 0 clamp(56px,8vw,96px); }
+footer p{ color:var(--grey); font-size:.88em; }
+
+@media (max-width:560px){
+  .ref{ flex-direction:column; gap:14px; }
+  .hundred{ gap:2px; }
+}
+@media (prefers-reduced-motion:reduce){ *{ animation:none !important; transition:none !important; } }
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <span class="meta">Hard As Nails · creative direction · Partners Now · August 2026</span>
+  <h1 class="display">Two<br>fingers<br><em>up.</em></h1>
+  <p class="standfirst">The strategy is already punk. The pictures aren't yet. This is the argument for the creative layer, the rule that stops it tipping into aggression, and a board of the actual sleeves to pull — <strong>1977 to 1992, two colours, hand-cut</strong>.</p>
+  <div class="specstrip">
+    <div><span class="meta">Palette</span><b>Black · Rhodamine · Off-white</b></div>
+    <div><span class="meta">Period</span><b>Post-punk → Madchester</b></div>
+    <div><span class="meta">Method</span><b>Photomontage, 2-colour offset</b></div>
+    <div><span class="meta">Gesture</span><b>V, not the finger</b></div>
+  </div>
+</header>
+
+<section id="verdict">
+  <div class="sechead">
+    <span class="meta">01</span>
+    <h2>Does it track?</h2>
+  </div>
+  <p class="lede">Short answer: yes on all three, and the audience read is the strongest of them. One thing needs fixing before any of it gets made.</p>
+
+  <div class="verdicts">
+    <div class="verdict">
+      <span class="chip yes">Holds</span>
+      <h3>The insight</h3>
+      <p>"The patriarchy is the system that holds men back too" is a genuinely punk proposition — it reframes the accused as the constrained. Punk's whole grammar is refusing an assigned role. Painting your nails is a small, cheap, public refusal. The aesthetic isn't decoration on that idea; it's the same idea in a different medium.</p>
+    </div>
+    <div class="verdict">
+      <span class="chip yes">Holds, strongly</span>
+      <h3>The audience</h3>
+      <p>You've heard it directly and repeatedly: <em>I used to paint my nails when I was a punk / a goth / a new romantic.</em> That isn't a nice coincidence, it's a route back in. A 45–58-year-old firefighter didn't lose the capacity for self-decoration; he was told to put it away. The 1978–1990 sleeve language is the visual proof that he once had permission — and it belongs to him, not to a salon.</p>
+    </div>
+    <div class="verdict">
+      <span class="chip but">Holds, with a condition</span>
+      <h3>The opportunity</h3>
+      <p>The badge is the opportunity, and Emma just proved it: she asked to put the mark on her own signature before anyone asked her to. That's the whole test. But a badge people want to wear at work has to survive being seen by their boss, their client, and their kid — which is exactly where the finger becomes a live question rather than a style choice.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h3>The one thing I'd change</h3>
+    <p>Danielly is right that the middle finger is too aggressive, and wrong about why — which means his conclusion (soften it) is the wrong fix. Aggression isn't in the gesture. It's in the <em>aim</em>. A finger pointed down the lens is aimed at the viewer: it says <em>fuck you</em> to a man who has done nothing yet except look. The same hand raised to the side, to camera-left, aimed at nothing in the frame, reads as <em>fuck this</em> — at the rule, not the reader.</p>
+    <p>Every gesture in this system points at the system, never at the audience. That single rule lets you keep all of the attitude and lose all of the hostility, and it's the reason both Danielly and Emma can be right at the same time.</p>
+  </div>
+</section>
+
+<section id="gesture">
+  <div class="sechead">
+    <span class="meta">02</span>
+    <h2>The salute</h2>
+  </div>
+  <p class="lede">You already have a middle finger in the Hard As Nails wordmark, going into the A. Don't touch it. But it can't also be the thing a hundred men do in a hundred photographs — it's a mark, not a pose, and a mark repeated a hundred times stops being a mark.</p>
+
+  <div class="compare">
+    <div class="panel kill">
+      <p class="glyph">→ You</p>
+      <h3>Aimed at the viewer</h3>
+      <p>Straight down the lens, centred, filling the frame. Reads as contempt for whoever is looking. This is what Danielly is reacting to, and he's not wrong — a partner-facing surface can't open with an insult to a stranger.</p>
+    </div>
+    <div class="panel keep">
+      <p class="glyph">→ It</p>
+      <h3>Aimed at the system</h3>
+      <p>Raised to the side, off-axis, thrown at something outside the crop. Same defiance, different target. The viewer becomes a co-conspirator rather than the object. This is the shootable rule — put it in the photographer's brief in one line.</p>
+    </div>
+  </div>
+
+  <div class="split">
+    <div>
+      <span class="meta">Rare · owned · one place</span>
+      <h4>The finger stays in the logo</h4>
+      <ul>
+        <li>It's already there, it's earned, and it predates all of this.</li>
+        <li>It appears once, in the mark, at brand level — never in participant photography, never on a partner deck.</li>
+        <li>Scarcity is what keeps it a signal instead of a tic. One joke told once is a mark; told a hundred times it's a mannerism.</li>
+        <li>Keep your email signature exactly as it is. The gentleman-illustration-flipping-the-bird works precisely because it's yours and singular. It is not a system, and it shouldn't be asked to become one.</li>
+      </ul>
+    </div>
+    <div>
+      <span class="meta">Repeatable · British · groupable</span>
+      <h4>The V is the people's gesture</h4>
+      <ul>
+        <li>Participant portraits, email signatures, badges, stickers, the partner pack — the V is the shareable one.</li>
+        <li>It's specifically British and specifically cheeky rather than furious. It carries mischief, which is the register your participants already write in.</li>
+        <li>It photographs better in a grid: two fingers make a legible silhouette at 40px, a single finger reads as a smudge.</li>
+        <li>It shows more nails. Two painted nails to camera instead of one — the product is literally more visible.</li>
+        <li>Emma can put it on her signature on Monday. That's the point of it.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="palette">
+  <div class="sechead">
+    <span class="meta">03</span>
+    <h2>Two colours</h2>
+  </div>
+  <p class="lede">The discipline that makes this look like 1979 rather than like a brand guideline isn't the colours themselves — it's the constraint. Punk sleeves were two-colour because two-colour was cheap. Malcolm Garrett reduced Linder's full-colour montage for <em>Orgasm Addict</em> to two colours purely to cut the print bill, and that economy is the look. Adopt the constraint and the aesthetic comes free.</p>
+
+  <div class="swatches">
+    <div class="sw">
+      <span class="chipfill" style="background:#0A0709"></span>
+      <div class="info"><b>Ground</b><span>#0A0709</span><p>Warm near-black, not #000. Everything sits on it. Never a white page with black type — invert the default and half the work is done.</p></div>
+    </div>
+    <div class="sw">
+      <span class="chipfill" style="background:#E6007E"></span>
+      <div class="info"><b>Rhodamine</b><span>#E6007E</span><p>Already live on the research site. It's process magenta — the ink, not a tint. Full strength or not at all; a 40% pink is a nursery.</p></div>
+    </div>
+    <div class="sw">
+      <span class="chipfill" style="background:#FF338F"></span>
+      <div class="info"><b>Hot</b><span>#FF338F</span><p>Screen-only lift for links, hovers and states. Doesn't exist in print. Keep it out of any artwork brief.</p></div>
+    </div>
+    <div class="sw">
+      <span class="chipfill" style="background:#F3ECEF"></span>
+      <div class="info"><b>Paper</b><span>#F3ECEF</span><p>Off-white with a pink bias, so the whites look printed rather than lit. Pure #FFF only in the wordmark.</p></div>
+    </div>
+    <div class="sw">
+      <span class="chipfill" style="background:#E4FF3D"></span>
+      <div class="info"><b>Smiley</b><span>#E4FF3D</span><p>Third ink, rationed. A participant described his own nails as "neon pink and 'smiley' yellow" — the audience handed you the acid-house accent unprompted. Use it for one thing only: alerts, deadlines, the campaign month.</p></div>
+    </div>
+  </div>
+
+  <div class="halftone-demo" role="img" aria-label="Halftone dot field in rhodamine pink on black, with a solid pink disc at left"></div>
+</section>
+
+<section id="hundred">
+  <div class="sechead">
+    <span class="meta">04</span>
+    <h2>Rescuing the hundred</h2>
+  </div>
+  <p class="lede">You don't need to reshoot a hundred men. The photographs aren't twee because of the nails — they're twee because of the light and the posture. Soft light, white background, apologetic smile, hand held out for inspection like a swatch. That's the visual grammar of a salon, and it's doing the opposite of what the research says.</p>
+
+  <div class="hundred" id="grid100" role="img" aria-label="A grid of one hundred black tiles, each carrying a single pink mark — the treatment applied to the existing participant photographs"></div>
+
+  <div class="specs">
+    <div>
+      <span class="meta">No reshoot · this week</span>
+      <h4>Treat what you already have</h4>
+      <ol>
+        <li>Duotone everything: black and rhodamine, two plates, no third colour, no greys that aren't made of dots.</li>
+        <li>Coarse halftone — visibly dotted, the way a 1979 sleeve was. Grain kills preciousness faster than any art direction.</li>
+        <li>Crop tight and crop hard. Hands and faces only. Kitchens, sofas and salon interiors are where the tweeness lives.</li>
+        <li>Grid them. One man is a portrait; a hundred men in a 10 × 10 wall is a movement, and the repetition does the argument for you.</li>
+        <li>Keep the WhatsApp screengrabs untreated as counterpoint. Their rawness is the evidence layer — Central Station collaged found material, and yours is better because it's genuinely yours.</li>
+      </ol>
+    </div>
+    <div>
+      <span class="meta">2026 campaign · shoot brief</span>
+      <h4>Shoot the next hundred properly</h4>
+      <ol>
+        <li>Hard direct flash, black ground, low horizon. Shoot a fireman like a monument, not like a client — see Brian Griffin's <em>A Broken Frame</em>.</li>
+        <li>No smiling for approval. Deadpan or defiant. A smile is fine if it's his, not one offered to the camera.</li>
+        <li>Hands as fists, Vs, and grips — never displayed palm-down for inspection.</li>
+        <li>Shoot in the uniform, the hi-vis, the kit. The collision of workwear and painted nails is the entire story in one frame; a plain t-shirt throws it away.</li>
+        <li>Every gesture aimed off-frame. The rule from section 02, in the call sheet.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="board">
+  <div class="sechead">
+    <span class="meta">05</span>
+    <h2>The board</h2>
+  </div>
+  <p class="lede">Five lanes, in the order I'd raid them. Not full New Romantic, not early Adam Ant, not ransom-note punk — the narrower seam you described: the moment the graphics were still hand-cut but the colour had gone neon.</p>
+
+  <p class="imgnote"><b>On the images:</b> the covers themselves aren't reproduced here — they're other people's copyrighted artwork and this page is shareable. Every entry is credited precisely enough to pull in one search, and linked. The pink discs are catalogue markers, not the sleeves.</p>
+
+  <div class="lane">
+    <div class="lanehead">
+      <span class="meta">Lane A</span>
+      <h3>Photomontage as argument</h3>
+      <p>The direct ancestor. Cut-up bodies and domestic objects, used to attack gender roles, printed in two colours because that's all anyone could afford.</p>
+    </div>
+    <div class="refs">
+      <div class="ref">
+        <span class="label">A01</span>
+        <div class="txt">
+          <h4>Orgasm Addict</h4>
+          <span class="credit">Buzzcocks · New Hormones · 1977<br>Montage: Linder Sterling · Design: Malcolm Garrett</span>
+          <p>An iron-headed nude with mouths for nipples, spliced from pornography and homes-and-gardens magazines. Garrett stripped it to two colours to save money. It's in MoMA's collection.</p>
+          <p class="take"><b>Take —</b> the method, not the shock. A feminist photomontage about gendered bodies, on a punk sleeve, in black and one hot colour. This is your reference of record.</p>
+          <a href="https://www.moma.org/collection/works/156037">MoMA →</a>
+        </div>
+      </div>
+      <div class="ref">
+        <span class="label b">A02</span>
+        <div class="txt">
+          <h4>Penis Envy</h4>
+          <span class="credit">Crass · Crass Records · 1981<br>Artwork: Gee Vaucher</span>
+          <p>Vaucher's photomontage and gouache work for Crass — forensic, monochrome, stencilled, and explicitly about gender and conditioning rather than nihilism.</p>
+          <p class="take"><b>Take —</b> the seriousness. Proof that a graphic can be angry and rigorous at once. Also the stencil system: one repeatable mark, applied everywhere.</p>
+          <a href="https://www.discogs.com/search/?q=Crass+Penis+Envy&type=release">Discogs →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <div class="lanehead">
+      <span class="meta">Lane B</span>
+      <h3>The sleeve carries the data</h3>
+      <p>Where the artwork is the manifesto. You have nine-month empathy scores and a control group. Almost nobody in this category has evidence — put it on the merch.</p>
+    </div>
+    <div class="refs">
+      <div class="ref">
+        <span class="label">B01</span>
+        <div class="txt">
+          <h4>Two Tribes</h4>
+          <span class="credit">Frankie Goes To Hollywood · ZTT · 1984<br>Design: XL/ZTT · Photography: Anton Corbijn · Text: Paul Morley</span>
+          <p>Morley loaded the sleeve with copy, including a chart of the biological effects of nuclear fallout on civilians and a breakdown of US and Soviet arsenals. A pop single that shipped with a data appendix.</p>
+          <p class="take"><b>Take —</b> the exact move for Hard As Nails. MIAB scores, the control group, empathy at nine months — set as sleeve notes on the back of a poster, not as a PDF nobody opens.</p>
+          <a href="https://www.artofztt.com/sleeves/fgth-sleeves/frankie-goes-to-hollywood-two-tribes-7-single/">Art of ZTT →</a>
+        </div>
+      </div>
+      <div class="ref">
+        <span class="label c">B02</span>
+        <div class="txt">
+          <h4>Red Mecca / 2x45 / Micro-Phonies</h4>
+          <span class="credit">Cabaret Voltaire · Fetish &amp; Some Bizzare · 1981–84<br>Design: Neville Brody</span>
+          <p>Brody's Fetish period, then <em>The Face</em> from 1981. Everything hand-made — painted, carved, PMT'd, pasted from film overlays, years before a computer touched it. He built bespoke symbols and used them as a language.</p>
+          <p class="take"><b>Take —</b> a proprietary symbol set for Hard As Nails. Ten nails, a V, a hazard mark, a tick — drawn once, used as punctuation everywhere. Cheaper than illustration and infinitely more ownable.</p>
+          <a href="https://www.discogs.com/search/?q=Cabaret+Voltaire+Red+Mecca&type=release">Discogs →</a>
+        </div>
+      </div>
+      <div class="ref">
+        <span class="label b">B03</span>
+        <div class="txt">
+          <h4>Blue Monday (FAC 73)</h4>
+          <span class="credit">New Order · Factory · 1983<br>Design: Peter Saville</span>
+          <p>A die-cut sleeve imitating a 5.25" floppy disk, with the title and catalogue number encoded as a colour code you can only decipher using the wheel printed on the back of <em>Power, Corruption &amp; Lies</em>.</p>
+          <p class="take"><b>Take —</b> withholding as confidence. Not everything explains itself. A brand that makes you lean in reads as adult, and adult is the antidote to twee.</p>
+          <a href="https://factoryrecords.org/cerysmatic/fac73.php">Factory Records →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <div class="lanehead">
+      <span class="meta">Lane C</span>
+      <h3>Neon collage, 1988–1992</h3>
+      <p>The bullseye for your age range. Saturated, found, working-class, unembarrassed. This is where "a bit neon, a bit collage" actually lives.</p>
+    </div>
+    <div class="refs">
+      <div class="ref">
+        <span class="label">C01</span>
+        <div class="txt">
+          <h4>Pills 'n' Thrills and Bellyaches</h4>
+          <span class="credit">Happy Mondays · Factory FACT 320 · 1990<br>Design: Central Station Design</span>
+          <p>First pressings collaged real US candy wrappers — Factory flew Central Station to LA for a week to collect the raw material. Later pressings had to strip the logos out for copyright.</p>
+          <p class="take"><b>Take —</b> the tone above all: joyful, blokey, zero art-school apology. And the warning: collage your own found material. Yours is the WhatsApp group, and it's better because nobody can take it off you.</p>
+          <a href="https://www.discogs.com/master/10610-Happy-Mondays-Pills-N-Thrills-And-Bellyaches">Discogs →</a>
+        </div>
+      </div>
+      <div class="ref">
+        <span class="label c">C02</span>
+        <div class="txt">
+          <h4>This Is the Day… This Is the Hour… This Is This!</h4>
+          <span class="credit">Pop Will Eat Itself · RCA · 1989<br>Design: The Designers Republic</span>
+          <p>Sheffield. Pseudo-corporate marks, radiation and hazard symbols, fake official language deployed as a joke on official language. Held by the V&amp;A.</p>
+          <p class="take"><b>Take —</b> the parody of institutional design. Hard As Nails is walking into fire services, gyms and schools — a brand that mimics the safety notice and subverts it will get further inside those buildings than one that looks like a charity.</p>
+          <a href="https://collections.vam.ac.uk/item/O189266/this-is-the-day-this-cassette-tape-case-designers-republic">V&amp;A →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <div class="lanehead">
+      <span class="meta">Lane D</span>
+      <h3>Day-glo pink at full strength</h3>
+      <p>Where your pink actually comes from — and the reason it can't be pastel.</p>
+    </div>
+    <div class="refs">
+      <div class="ref">
+        <span class="label">D01</span>
+        <div class="txt">
+          <h4>Germfree Adolescents</h4>
+          <span class="credit">X-Ray Spex · EMI International · 1978<br>Sleeve: Cooke Key · Concept: Falcon Stuart · Photography: Trevor Key</span>
+          <p>Poly Styrene in day-glo and dental braces, refusing to be decorative in a scene that expected it. The record is about plastic, consumption and manufactured identity.</p>
+          <p class="take"><b>Take —</b> the exact saturation level, and the politics underneath it. Day-glo as refusal, not as fun.</p>
+          <a href="https://www.discogs.com/release/2798232-X-Ray-Spex-Germfree-Adolescents">Discogs →</a>
+        </div>
+      </div>
+      <div class="ref">
+        <span class="label b">D02</span>
+        <div class="txt">
+          <h4>Never Mind the Bollocks</h4>
+          <span class="credit">Sex Pistols · Virgin · 1977<br>Design: Jamie Reid</span>
+          <p>Neon pink and acid yellow with black type. The colour pair that defined the whole thing.</p>
+          <p class="take"><b>Take —</b> the pink-and-acid pairing only. Leave the ransom-note lettering exactly where it is — it's the most exhausted device in graphic design and it will date your work by forty years in the wrong direction.</p>
+          <a href="https://www.discogs.com/search/?q=Sex+Pistols+Never+Mind+The+Bollocks&type=release">Discogs →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <div class="lanehead">
+      <span class="meta">Lane E</span>
+      <h3>How to photograph an ordinary man</h3>
+      <p>The lane that actually solves your hundred-men problem. Not a graphic reference — a lighting and posture reference.</p>
+    </div>
+    <div class="refs">
+      <div class="ref">
+        <span class="label">E01</span>
+        <div class="txt">
+          <h4>A Broken Frame</h4>
+          <span class="credit">Depeche Mode · Mute · 1982<br>Photography: Brian Griffin · Design: Martyn Atkins</span>
+          <p>A woman scything corn under a vast storm sky, shot with the visual language of Soviet socialist realism. <em>Life</em> named it one of the best photographs of the 1980s.</p>
+          <p class="take"><b>Take —</b> the whole answer to twee. Griffin photographed ordinary labour as monumental. Do that to a fire-service watch manager with pink nails and nobody will call it embarrassing.</p>
+          <a href="https://www.discogs.com/search/?q=Depeche+Mode+A+Broken+Frame&amp;type=release">Discogs →</a>
+        </div>
+      </div>
+      <div class="ref">
+        <span class="label b">E02</span>
+        <div class="txt">
+          <h4>Anton Corbijn, 1984–1990</h4>
+          <span class="credit">Depeche Mode, Frankie Goes To Hollywood, U2</span>
+          <p>Blown-out grain, hard contrast, subjects photographed in real places looking like they'd rather be elsewhere. Never flattering, always dignifying.</p>
+          <p class="take"><b>Take —</b> permission for imperfection. Grain and grit read as honesty; clean retouching reads as marketing, and your participants aren't a campaign, they're evidence.</p>
+          <a href="https://www.discogs.com/search/?q=Anton+Corbijn&type=all">Discogs →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nots">
+  <div class="sechead">
+    <span class="meta">06</span>
+    <h2>What it isn't</h2>
+  </div>
+  <p class="lede">Your exclusions, sharpened — because each of these is what a designer will drift toward the moment the brief says "nails".</p>
+  <div class="nots">
+    <div class="not"><b>Nail salon</b><p>No script logotypes, no dusty-rose gradients, no bottle-and-brush photography, no hand held out for inspection. The nail is a mark, not a manicure.</p></div>
+    <div class="not"><b>Camp</b><p>Warmth and humour, yes — that's in the participants' own words. Knowingness and wink, no. The joke is on the rule, never on the men.</p></div>
+    <div class="not"><b>Vintage retro</b><p>Not a pastiche of 1979. Take the method — two plates, hand-cut, coarse halftone — and use it on 2026 photographs of 2026 men.</p></div>
+    <div class="not"><b>Full New Romantic</b><p>No frills, no ruffs, no Adam Ant stripe. Blitz-adjacent means the graphics, not the costume — the men in this study wear hi-vis.</p></div>
+    <div class="not"><b>Ransom note</b><p>Cut-out lettering is punk's most exhausted signifier. Cut up the images, set the type straight.</p></div>
+    <div class="not"><b>Charity</b><p>No soft-focus testimonial photography, no muted palette, no rounded corners. You have a control group. Look like research, behave like a movement.</p></div>
+  </div>
+</section>
+
+<section id="facts">
+  <div class="sechead">
+    <span class="meta">07</span>
+    <h2>Three true things</h2>
+  </div>
+  <p class="lede">Usable on a poster, in a keynote, or on the back of the partner pack. Two are gifts. One is a landmine you should know about before someone hands it to you.</p>
+  <div class="facts">
+    <div class="fact">
+      <span class="num">420 BC</span>
+      <p><b>The middle finger is 2,400 years old.</b> Aristophanes puts it in <em>The Clouds</em>, where a character uses it to mock Socrates. Rome called it <em>digitus impudicus</em>, the indecent digit. It is older than every stereotype we're asking men to drop.</p>
+    </div>
+    <div class="fact">
+      <span class="num">1918</span>
+      <p><b>Pink was a boys' colour.</b> Earnshaw's <em>Infants' Department</em>, June 1918: "the generally accepted rule is pink for the boys, and blue for the girls… pink, being a more decided and stronger colour, is more suitable for the boy." Documented by Jo B. Paoletti. The thing we're asking men to reclaim was assigned to them within living memory of their grandfathers.</p>
+    </div>
+    <div class="fact">
+      <span class="num dead">1415</span>
+      <p><b>Don't use the Agincourt story.</b> The tale that English archers invented the V-sign after the French threatened to cut off their bow fingers is a myth — no chronicle records it, and it only became popular in the 1990s. The British Library finds no link. If you want a real date, the V-sign appears in the Macclesfield Psalter around 1330, eighty-odd years before the battle.</p>
+    </div>
+  </div>
+</section>
+
+<section id="next">
+  <div class="sechead">
+    <span class="meta">08</span>
+    <h2>What I'd do next</h2>
+  </div>
+  <div class="next">
+    <div><div><h4>Settle the gesture in one line</h4><p>Send Danielly and Emma the aim rule from section 02 — at the system, never at the viewer. It resolves their disagreement without either of them losing, and it's a rule a photographer can actually follow.</p></div></div>
+    <div><div><h4>Treat twenty of the existing hundred</h4><p>Duotone, coarse halftone, hard crop. Twenty is enough to know whether the treatment rescues the library or whether you're reshooting. A day's work, and it answers the expensive question first.</p></div></div>
+    <div><div><h4>Draw the symbol set</h4><p>Ten nails, the V, a hazard mark, a tick. Brody's approach: a small proprietary alphabet used as punctuation everywhere. This is what makes Partners Now feel like the same organism as the research site.</p></div></div>
+    <div><div><h4>Decide the Partners Now dial</h4><p>The punk lives at brand and movement level. Partner-facing surfaces carry it in the colour, the type and the edit — not in a gesture aimed at somebody's HR director. Same world, lower volume. Worth agreeing explicitly before anyone designs a screen.</p></div></div>
+    <div><div><h4>Tell me about Pumpkin Rebellion</h4><p>You mentioned it twice and I don't have enough to place it. If it's a campaign moment, it may want its own colour — the smiley yellow is currently unspent.</p></div></div>
+  </div>
+</section>
+
+<footer>
+  <p class="meta">Hard As Nails · Brave Males · Great Nails · Hard Data</p>
+  <p>Board compiled August 2026. Credits verified against MoMA, the V&amp;A, Art of ZTT, Factory Records and Discogs. Album artwork is reproduced nowhere on this page — every entry is credited to be pulled directly from source.</p>
+</footer>
+
+</div>
+
+<script>
+// The hundred: deterministic halftone variation, so the wall looks made rather than generated.
+(function () {
+  var g = document.getElementById('grid100');
+  if (!g) return;
+  var frag = document.createDocumentFragment();
+  for (var i = 0; i < 100; i++) {
+    var t = document.createElement('i');
+    var d = 3 + ((i * 7) % 5);                 // dot pitch, px
+    var o = 0.45 + (((i * 13) % 9) / 18);      // ink density
+    var a = ((i * 31) % 4) * 45;               // screen angle, degrees
+    t.style.backgroundImage =
+      'repeating-linear-gradient(' + a + 'deg, rgba(230,0,126,' + o.toFixed(2) +
+      ') 0 1px, transparent 1px ' + d + 'px)';
+    frag.appendChild(t);
+  }
+  g.appendChild(frag);
+})();
+</script>
