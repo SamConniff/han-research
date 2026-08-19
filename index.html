@@ -273,8 +273,12 @@ p{margin:0 0 1em}
 @media (max-width:680px){.hands-card{width:240px}}
 </style>
   <!-- Same Plausible property as hard-as-nails.com: the research site stops
-       being a separate analytics island. Cookieless, no personal data. -->
-  <script defer data-domain="hard-as-nails.com" src="https://plausible.io/js/script.js"></script>
+       being a separate analytics island. Cookieless, no personal data.
+       tagged-events build so the four sign-up CTAs fire a Signup Click event
+       with a position prop. Without it a reader of this one long page is
+       indistinguishable from a bounce even when he clicks straight through,
+       and the sales-site bounce rate absorbs that as if it were a failure. -->
+  <script defer data-domain="hard-as-nails.com" src="https://plausible.io/js/script.tagged-events.js"></script>
 </head>
 <body>
 
@@ -301,7 +305,7 @@ p{margin:0 0 1em}
     </a>
     <div class="chrome-right">
       <a class="chrome-navlink active" href="/" aria-current="page">Research</a>
-      <a class="chrome-btn" href="https://han-app-staging.netlify.app" target="_blank" rel="noopener">Sign up free →</a>
+      <a class="chrome-btn plausible-event-name=Signup+Click plausible-event-position=nav" href="https://hard-as-nails.com/signup" target="_blank" rel="noopener">Sign up free →</a>
     </div>
   </div>
   <div class="topbar-inner">
@@ -334,7 +338,7 @@ p{margin:0 0 1em}
         <div class="ctas">
           <a class="btn" href="#voices">Participant reflections</a>
           <a class="btn outline" href="#comment">Have your say</a>
-          <a class="btn outline" href="https://han-app-staging.netlify.app" target="_blank" rel="noopener">Sign up for 2026</a>
+          <a class="btn outline plausible-event-name=Signup+Click plausible-event-position=hero" href="https://hard-as-nails.com/signup" target="_blank" rel="noopener">Sign up for 2026</a>
         </div>
       </div>
       <div class="hero-mark" aria-hidden="true">
@@ -648,7 +652,7 @@ p{margin:0 0 1em}
 
     <div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:14px">
       <a class="btn" href="https://hard-as-nails.com/100men" target="_blank" rel="noopener">See the full 100 at hard-as-nails.com/100men</a>
-      <a class="btn outline" href="https://han-app-staging.netlify.app" target="_blank" rel="noopener">Sign up for 2026</a>
+      <a class="btn outline plausible-event-name=Signup+Click plausible-event-position=findings" href="https://hard-as-nails.com/signup" target="_blank" rel="noopener">Sign up for 2026</a>
     </div>
   </div>
 </section>
@@ -800,7 +804,7 @@ p{margin:0 0 1em}
     <div class="spacer-m" style="display:flex;flex-wrap:wrap;gap:14px">
       <a class="btn invert" href="mailto:sam@samconniff.com?subject=Hard As Nails comments">Email Sam your thoughts</a>
       <a class="btn invert" href="mailto:sam@samconniff.com?subject=Hard As Nails — Google doc share request" data-todo="replace-with-google-doc-url" target="_blank" rel="noopener" style="background:transparent;color:#fff;border:2px solid #fff" data-placeholder="add-google-doc-url">Read the work-in-progress paper</a>
-      <a class="btn invert" href="https://han-app-staging.netlify.app" target="_blank" rel="noopener" style="background:transparent;color:#fff;border:2px solid #fff">Sign up for 2026</a>
+      <a class="btn invert plausible-event-name=Signup+Click plausible-event-position=close" href="https://hard-as-nails.com/signup" target="_blank" rel="noopener" style="background:transparent;color:#fff;border:2px solid #fff">Sign up for 2026</a>
     </div>
   </div>
 </section>
