@@ -266,6 +266,33 @@ p{ max-width:var(--measure); }
   font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.1em; color:var(--grey);
 }
 
+/* ── galleries ─────────────────────────────────────────── */
+.wall{ display:grid; gap:10px; grid-template-columns:repeat(auto-fill,minmax(128px,1fr)); margin-top:24px; }
+.wall figure{ margin:0; }
+.wall .fr{
+  position:relative; aspect-ratio:3/4; overflow:hidden; background:#000;
+  border:1px solid var(--ink-edge);
+  background-image: repeating-linear-gradient(45deg, rgba(230,0,126,.4) 0 1px, transparent 1px 8px);
+}
+.wall img{ width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(1) contrast(1.12); transition:filter .18s; }
+.wall figure:hover img{ filter:none; }
+.wall figcaption{
+  font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--grey); margin-top:7px; line-height:1.45;
+}
+.wall figcaption b{ color:var(--paper); font-weight:400; display:block; }
+
+.strip{ display:grid; gap:1px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); background:var(--ink-edge); border:1px solid var(--ink-edge); }
+.strip figure{ margin:0; background:var(--ink); }
+.strip .fr{ aspect-ratio:1/1; overflow:hidden; background:#000; }
+.strip img{ width:100%; height:100%; object-fit:cover; display:block; }
+.strip figcaption{ padding:12px 14px 16px; }
+.strip figcaption b{
+  display:block; font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 100,'wght' 800;
+  text-transform:uppercase; font-size:13px; letter-spacing:.03em; margin-bottom:5px; color:var(--paper);
+}
+.strip figcaption span{ font-size:.82em; color:var(--paper-dim); line-height:1.45; display:block; }
+
 /* ── pull list ─────────────────────────────────────────── */
 .pull{ border:1px solid var(--rhodamine); padding:clamp(20px,2.6vw,30px); margin-bottom:clamp(30px,4vw,44px); }
 .pull h3{
@@ -436,6 +463,25 @@ footer p{ color:var(--grey); font-size:.88em; }
       </ul>
     </div>
   </div>
+
+  <div class="lanehead" style="margin-top:clamp(40px,5vw,56px)">
+    <span class="meta">The evidence</span>
+    <h3>Seven decades of the same two fingers</h3>
+    <p>Not a mood board of a gesture — a lineage. Churchill made it a victory sign, Kes made it working-class and English, punk made it rude, and Britpop turned it into a badge. Every one of these is aimed at something outside the frame. The rule in this section isn't an invention; it's what everyone who has ever used the gesture well already does.</p>
+  </div>
+  <div class="wall">
+      <figure><div class="fr"><img src="V%20Salute%20Winston.jpg" alt="Two-fingered salute, Churchill" loading="lazy" onerror="this.remove()"></div><figcaption><b>Churchill</b>1942 · Reg Speller</figcaption></figure>
+      <figure><div class="fr"><img src="V%20Sign%20Kes.jpeg" alt="Two-fingered salute, Kes" loading="lazy" onerror="this.remove()"></div><figcaption><b>Kes</b>1969</figcaption></figure>
+      <figure><div class="fr"><img src="V%20Salute%20Vyvian.jpg" alt="Two-fingered salute, Vyvyan" loading="lazy" onerror="this.remove()"></div><figcaption><b>Vyvyan</b>The Young Ones</figcaption></figure>
+      <figure><div class="fr"><img src="V%20Salute%20Rik.jpeg" alt="Two-fingered salute, Rik Mayall" loading="lazy" onerror="this.remove()"></div><figcaption><b>Rik Mayall</b>—</figcaption></figure>
+      <figure><div class="fr"><img src="V%20Sign%20Jarvis.jpg" alt="Two-fingered salute, Jarvis Cocker" loading="lazy" onerror="this.remove()"></div><figcaption><b>Jarvis Cocker</b>Pulp</figcaption></figure>
+      <figure><div class="fr"><img src="V%20Salute%20Liam.avif" alt="Two-fingered salute, Liam Gallagher" loading="lazy" onerror="this.remove()"></div><figcaption><b>Liam Gallagher</b>Oasis</figcaption></figure>
+      <figure><div class="fr"><img src="V%20Salute%20Noel.webp" alt="Two-fingered salute, Noel Gallagher" loading="lazy" onerror="this.remove()"></div><figcaption><b>Noel Gallagher</b>Oasis</figcaption></figure>
+      <figure><div class="fr"><img src="V%20Salute%20Oasis.jpg" alt="Two-fingered salute, Oasis" loading="lazy" onerror="this.remove()"></div><figcaption><b>Oasis</b>Both of them</figcaption></figure>
+      <figure><div class="fr"><img src="V%20Salute%20McQueen.jpeg" alt="Two-fingered salute, Steve McQueen" loading="lazy" onerror="this.remove()"></div><figcaption><b>Steve McQueen</b>On set</figcaption></figure>
+      <figure><div class="fr"><img src="V%20Salute%20Steve%20McQueen.jpeg" alt="Two-fingered salute, Steve McQueen" loading="lazy" onerror="this.remove()"></div><figcaption><b>Steve McQueen</b>Again</figcaption></figure>
+      <figure><div class="fr"><img src="V%20Salute%20Robbie.jpeg" alt="Two-fingered salute, Robbie Williams" loading="lazy" onerror="this.remove()"></div><figcaption><b>Robbie Williams</b>—</figcaption></figure>
+  </div>
 </section>
 
 <section id="palette">
@@ -514,32 +560,10 @@ footer p{ color:var(--grey); font-size:.88em; }
   <p class="lede">Five lanes, in the order I'd raid them. Not full New Romantic, not early Adam Ant, not ransom-note punk — the narrower seam you described: the moment the graphics were still hand-cut but the colour had gone neon.</p>
 
   <div class="pull">
-    <h3>Covers — how to fill the slots</h3>
-    <p>Every entry below has a live image slot. Put eleven files into a folder called <code>covers</code> sitting next to this file and the sleeves appear — nothing to rebuild, nothing to re-export. Until then the slots read as pending, which is what you're looking at now.</p>
-    <ol>
-      <li>Make a folder named <code>covers</code> alongside <code>mood-board.html</code>.</li>
-      <li>Save each sleeve from the source linked on its card, using the filename below. Exact match, lowercase, <code>.jpg</code>.</li>
-      <li>Reopen the file.</li>
-    </ol>
-    <p>Keep them small — 600px square is plenty here, and it keeps the board quick to send. Low resolution is also the point: these are cited references under fair dealing for criticism and review, not artwork we are reproducing.</p>
-    <div class="pull-scroll">
-      <table>
-        <thead><tr><th>Slot</th><th>Filename</th><th>Sleeve</th></tr></thead>
-        <tbody>
-          <tr><td>A01</td><td><code>A01_buzzcocks_orgasm-addict.jpg</code></td><td>Buzzcocks — Orgasm Addict (1977)</td></tr>
-          <tr><td>A02</td><td><code>A02_crass_penis-envy.jpg</code></td><td>Crass — Penis Envy (1981)</td></tr>
-          <tr><td>B01</td><td><code>B01_frankie_two-tribes.jpg</code></td><td>Frankie Goes To Hollywood — Two Tribes (1984)</td></tr>
-          <tr><td>B02</td><td><code>B02_cabaret-voltaire_red-mecca.jpg</code></td><td>Cabaret Voltaire — Red Mecca (1981)</td></tr>
-          <tr><td>B03</td><td><code>B03_new-order_blue-monday.jpg</code></td><td>New Order — Blue Monday, FAC 73 (1983)</td></tr>
-          <tr><td>C01</td><td><code>C01_happy-mondays_pills-n-thrills.jpg</code></td><td>Happy Mondays — Pills 'n' Thrills and Bellyaches (1990)</td></tr>
-          <tr><td>C02</td><td><code>C02_pwei_this-is-this.jpg</code></td><td>Pop Will Eat Itself — This Is the Day… This Is This! (1989)</td></tr>
-          <tr><td>D01</td><td><code>D01_x-ray-spex_germfree-adolescents.jpg</code></td><td>X-Ray Spex — Germfree Adolescents (1978)</td></tr>
-          <tr><td>D02</td><td><code>D02_sex-pistols_never-mind-the-bollocks.jpg</code></td><td>Sex Pistols — Never Mind the Bollocks (1977)</td></tr>
-          <tr><td>E01</td><td><code>E01_depeche-mode_a-broken-frame.jpg</code></td><td>Depeche Mode — A Broken Frame (1982)</td></tr>
-          <tr><td>E02</td><td><code>E02_depeche-mode_violator.jpg</code></td><td>Depeche Mode — Violator (1990)</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <h3>Where the images come from</h3>
+    <p>This page loads every image from the folder it sits in. Keep <code>mood-board.html</code> inside <b>Hard AS Nails / 005_Creative_Brand / 2026 Brand Update / Mood Board</b> in Drive and the whole board renders on any machine that syncs it. Move the file out of that folder and the pictures go with it — the frames fall back to a pink hatch and the argument still reads.</p>
+    <p>Filenames are used exactly as they are in Drive, typos and all, so nothing needs renaming. Three frames are still empty: Two Tribes, Red Mecca and Never Mind the Bollocks. Two more (<code>images.jpeg</code> and <code>R-159445…</code>) are in the board but uncaptioned because I could not open them from here — tell me what they are and I'll credit them properly.</p>
+    <p>Sleeve images are cited references under fair dealing for criticism and review, credited to their designers. Internal reference document.</p>
   </div>
 
   <div class="lane">
@@ -550,7 +574,7 @@ footer p{ color:var(--grey); font-size:.88em; }
     </div>
     <div class="refs">
       <div class="ref">
-        <figure class="cover empty" data-code="A01"><img src="covers/A01_buzzcocks_orgasm-addict.jpg" alt="Sleeve artwork: Buzzcocks, Orgasm Addict, 1977" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
+        <figure class="cover empty" data-code="A01"><img src="Buzzcocks.jpeg" alt="Buzzcocks, Orgasm Addict, 1977" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Orgasm Addict</h4>
           <span class="credit">Buzzcocks · New Hormones · 1977<br>Montage: Linder Sterling · Design: Malcolm Garrett</span>
@@ -560,7 +584,7 @@ footer p{ color:var(--grey); font-size:.88em; }
         </div>
       </div>
       <div class="ref">
-        <figure class="cover b empty" data-code="A02"><img src="covers/A02_crass_penis-envy.jpg" alt="Sleeve artwork: Crass, Penis Envy, 1981" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
+        <figure class="cover b empty" data-code="A02"><img src="Penis%20Envy.jpg" alt="Crass, Penis Envy, 1981" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Penis Envy</h4>
           <span class="credit">Crass · Crass Records · 1981<br>Artwork: Gee Vaucher</span>
@@ -600,7 +624,7 @@ footer p{ color:var(--grey); font-size:.88em; }
         </div>
       </div>
       <div class="ref">
-        <figure class="cover b empty" data-code="B03"><img src="covers/B03_new-order_blue-monday.jpg" alt="Sleeve artwork: New Order, Blue Monday, 1983" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
+        <figure class="cover b empty" data-code="B03"><img src="R-159445-1617868925-9167.jpg" alt="Sleeve from the Mood Board folder, to confirm" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Blue Monday (FAC 73)</h4>
           <span class="credit">New Order · Factory · 1983<br>Design: Peter Saville</span>
@@ -620,7 +644,7 @@ footer p{ color:var(--grey); font-size:.88em; }
     </div>
     <div class="refs">
       <div class="ref">
-        <figure class="cover empty" data-code="C01"><img src="covers/C01_happy-mondays_pills-n-thrills.jpg" alt="Sleeve artwork: Happy Mondays, Pills 'n' Thrills and Bellyaches, 1990" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
+        <figure class="cover empty" data-code="C01"><img src="Pills%20N%20Thrills.jpg" alt="Happy Mondays, Pills 'n' Thrills and Bellyaches, 1990" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Pills 'n' Thrills and Bellyaches</h4>
           <span class="credit">Happy Mondays · Factory FACT 320 · 1990<br>Design: Central Station Design</span>
@@ -630,7 +654,7 @@ footer p{ color:var(--grey); font-size:.88em; }
         </div>
       </div>
       <div class="ref">
-        <figure class="cover c empty" data-code="C02"><img src="covers/C02_pwei_this-is-this.jpg" alt="Sleeve artwork: Pop Will Eat Itself, This Is the Day... This Is This!, 1989" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
+        <figure class="cover c empty" data-code="C02"><img src="Pop%20Will%20Eat%20Itself.webp" alt="Pop Will Eat Itself, This Is the Day... This Is This!, 1989" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>This Is the Day… This Is the Hour… This Is This!</h4>
           <span class="credit">Pop Will Eat Itself · RCA · 1989<br>Design: The Designers Republic</span>
@@ -650,7 +674,7 @@ footer p{ color:var(--grey); font-size:.88em; }
     </div>
     <div class="refs">
       <div class="ref">
-        <figure class="cover empty" data-code="D01"><img src="covers/D01_x-ray-spex_germfree-adolescents.jpg" alt="Sleeve artwork: X-Ray Spex, Germfree Adolescents, 1978" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
+        <figure class="cover empty" data-code="D01"><img src="Germ%20Free%20Adolescents.jpg" alt="X-Ray Spex, Germfree Adolescents, 1978" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Germfree Adolescents</h4>
           <span class="credit">X-Ray Spex · EMI International · 1978<br>Sleeve: Cooke Key · Concept: Falcon Stuart · Photography: Trevor Key</span>
@@ -660,7 +684,7 @@ footer p{ color:var(--grey); font-size:.88em; }
         </div>
       </div>
       <div class="ref">
-        <figure class="cover b empty" data-code="D02"><img src="covers/D02_sex-pistols_never-mind-the-bollocks.jpg" alt="Sleeve artwork: Sex Pistols, Never Mind the Bollocks, 1977" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
+        <figure class="cover b empty" data-code="D02"><img src="images.jpeg" alt="Sleeve from the Mood Board folder, to confirm" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Never Mind the Bollocks</h4>
           <span class="credit">Sex Pistols · Virgin · 1977<br>Design: Jamie Reid</span>
@@ -680,7 +704,7 @@ footer p{ color:var(--grey); font-size:.88em; }
     </div>
     <div class="refs">
       <div class="ref">
-        <figure class="cover empty" data-code="E01"><img src="covers/E01_depeche-mode_a-broken-frame.jpg" alt="Sleeve artwork: Depeche Mode, A Broken Frame, 1982" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
+        <figure class="cover empty" data-code="E01"><img src="Broken%20Corn.webp" alt="Depeche Mode, A Broken Frame, 1982" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>A Broken Frame</h4>
           <span class="credit">Depeche Mode · Mute · 1982<br>Photography: Brian Griffin · Design: Martyn Atkins</span>
@@ -690,7 +714,7 @@ footer p{ color:var(--grey); font-size:.88em; }
         </div>
       </div>
       <div class="ref">
-        <figure class="cover b empty" data-code="E02"><img src="covers/E02_depeche-mode_violator.jpg" alt="Sleeve artwork: Depeche Mode, Violator, 1990" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
+        <figure class="cover b empty" data-code="E02"><img src="Anton%20Corbijn%201.jpeg" alt="Anton Corbijn portrait" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Violator</h4>
           <span class="credit">Depeche Mode · Mute · 1990<br>Design and photography: Anton Corbijn</span>
@@ -699,6 +723,28 @@ footer p{ color:var(--grey); font-size:.88em; }
           <a href="https://www.discogs.com/search/?q=Depeche+Mode+Violator&type=release">Discogs →</a>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <div class="lanehead">
+      <span class="meta">Lane F</span>
+      <h3>The world it lives in</h3>
+      <p>Everything else you pulled. Not sleeves — the surrounding visual culture that tells a designer what register we're in.</p>
+    </div>
+    <div class="strip">
+        <figure><div class="fr"><img src="DEREK-RIDGERS-Blitz-1979%E2%80%9380.jpg" alt="Derek Ridgers, Blitz 1979–80" loading="lazy" onerror="this.remove()"></div><figcaption><b>Derek Ridgers, Blitz 1979–80</b><span>The club itself, photographed straight. Ordinary young men in London, dressed up, entirely unembarrassed. The closest thing we have to a photographic brief.</span></figcaption></figure>
+        <figure><div class="fr"><img src="Face%20Neville%20Brody.jpg" alt="The Face — Neville Brody" loading="lazy" onerror="this.remove()"></div><figcaption><b>The Face — Neville Brody</b><span>Hand-cut, pre-computer, bespoke letterforms used as a system rather than a headline. The model for a HAN symbol set.</span></figcaption></figure>
+        <figure><div class="fr"><img src="The%20FACE.jpeg" alt="The Face" loading="lazy" onerror="this.remove()"></div><figcaption><b>The Face</b><span>The magazine that taught a generation of British men that graphics could carry attitude without shouting.</span></figcaption></figure>
+        <figure><div class="fr"><img src="Barney%20Bubbles.jpg" alt="Barney Bubbles" loading="lazy" onerror="this.remove()"></div><figcaption><b>Barney Bubbles</b><span>Stiff Records. Wit, geometry and cheap print used against each other. Funny without being twee — the hardest thing on this board to get right.</span></figcaption></figure>
+        <figure><div class="fr"><img src="Barney%20Bubbles%202.jpg" alt="Barney Bubbles" loading="lazy" onerror="this.remove()"></div><figcaption><b>Barney Bubbles</b><span>Second reference. Note how much work flat colour and a hard grid do on their own.</span></figcaption></figure>
+        <figure><div class="fr"><img src="Kraftwerk.jpg" alt="Kraftwerk" loading="lazy" onerror="this.remove()"></div><figcaption><b>Kraftwerk</b><span>Men, styled identically, refusing expression. Uniform as a statement rather than a hiding place.</span></figcaption></figure>
+        <figure><div class="fr"><img src="Hacienda.jpg" alt="The Haçienda" loading="lazy" onerror="this.remove()"></div><figcaption><b>The Haçienda</b><span>Ben Kelly's hazard stripes and industrial signage — a nightclub dressed as a workplace. Exactly the collision HAN is making with hi-vis and painted nails.</span></figcaption></figure>
+        <figure><div class="fr"><img src="NightClubbing.jpg" alt="Grace Jones, Nightclubbing" loading="lazy" onerror="this.remove()"></div><figcaption><b>Grace Jones, Nightclubbing</b><span>1981, Jean-Paul Goude. The flat-top, the shoulders, the androgyny held with total authority. Not a man, but the definitive answer to whether a hard image can carry a soft idea.</span></figcaption></figure>
+        <figure><div class="fr"><img src="Pay%20Attention.jpg" alt="Pay Attention" loading="lazy" onerror="this.remove()"></div><figcaption><b>Pay Attention</b><span>From your folder, unlabelled — tell me what this one is and I'll write it up properly.</span></figcaption></figure>
+        <figure><div class="fr"><img src="Anton%20Corbijn%202.jpeg" alt="Anton Corbijn" loading="lazy" onerror="this.remove()"></div><figcaption><b>Anton Corbijn</b><span>Grain, contrast, and subjects who look like they'd rather be elsewhere. Never flattering, always dignifying.</span></figcaption></figure>
+        <figure><div class="fr"><img src="Anton%20Cornijn%203.jpeg" alt="Anton Corbijn" loading="lazy" onerror="this.remove()"></div><figcaption><b>Anton Corbijn</b><span>Permission for imperfection. Clean retouching reads as marketing; grain reads as evidence.</span></figcaption></figure>
+        <figure><div class="fr"><img src="Anton%20Corbijn%205.jpeg" alt="Anton Corbijn" loading="lazy" onerror="this.remove()"></div><figcaption><b>Anton Corbijn</b><span>The lighting brief for the 2026 shoot, in one frame.</span></figcaption></figure>
     </div>
   </div>
 </section>
