@@ -274,11 +274,16 @@ p{margin:0 0 1em}
 </style>
   <!-- Same Plausible property as hard-as-nails.com: the research site stops
        being a separate analytics island. Cookieless, no personal data.
-       tagged-events build so the four sign-up CTAs fire a Signup Click event
-       with a position prop. Without it a reader of this one long page is
-       indistinguishable from a bounce even when he clicks straight through,
-       and the sales-site bounce rate absorbs that as if it were a failure. -->
-  <script defer data-domain="hard-as-nails.com" src="https://plausible.io/js/script.tagged-events.js"></script>
+       Snippet is the house standard set out in HAN_Laptop_Handover_18Aug2026
+       (tagged-events + outbound-links + file-downloads, plus the queue shim):
+       every page carries its own tag, Netlify does not inject one site-wide.
+       tagged-events is what makes the four sign-up CTAs fire a Signup Click
+       event with a position prop. Without it a reader of this one long page
+       is indistinguishable from a bounce even when he clicks straight
+       through, and the shared property absorbs that as a rising bounce rate
+       with no click data to contradict it. -->
+  <script defer data-domain="hard-as-nails.com" src="https://plausible.io/js/script.tagged-events.outbound-links.file-downloads.js"></script>
+  <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
 </head>
 <body>
 
