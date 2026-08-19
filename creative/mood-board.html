@@ -241,18 +241,54 @@ p{ max-width:var(--measure); }
 }
 .lanehead p{ color:var(--paper-dim); font-size:.95em; margin:0; }
 
-.refs{ display:grid; gap:1px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); background:var(--ink-edge); border:1px solid var(--ink-edge); }
+.refs{ display:grid; gap:1px; grid-template-columns:repeat(auto-fit,minmax(390px,1fr)); background:var(--ink-edge); border:1px solid var(--ink-edge); }
 .ref{ background:var(--ink); padding:clamp(18px,2.2vw,26px); display:flex; gap:18px; align-items:flex-start; }
-.ref .label{
+.ref .cover{
   --disc: var(--rhodamine);
-  flex:0 0 68px; width:68px; height:68px; border-radius:50%;
-  background: radial-gradient(circle at 50% 50%, var(--ink) 0 5.5px, var(--disc) 6px);
-  color:#0A0709;
-  display:flex; align-items:flex-start; justify-content:center; padding-top:9px;
+  flex:0 0 138px; width:138px; margin:0; position:relative;
+  aspect-ratio:1/1; background:#000; border:1px solid var(--ink-edge); overflow:hidden;
+}
+.ref .cover img{ width:100%; height:100%; object-fit:cover; display:block; }
+.ref .cover::after{
+  content:attr(data-code); position:absolute; left:0; bottom:0;
+  background:var(--disc); color:#0A0709; padding:3px 7px;
   font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700; letter-spacing:.06em;
 }
-.ref .label.b{ --disc: var(--paper); }
-.ref .label.c{ --disc: var(--acid); }
+.ref .cover.b{ --disc: var(--paper); }
+.ref .cover.c{ --disc: var(--acid); }
+.ref .cover.empty{
+  background-image: repeating-linear-gradient(45deg, rgba(230,0,126,.42) 0 1px, transparent 1px 8px);
+}
+.ref .cover.empty::before{
+  content:"COVER\A PENDING"; white-space:pre; position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  line-height:1.7;
+  font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.1em; color:var(--grey);
+}
+
+/* ── pull list ─────────────────────────────────────────── */
+.pull{ border:1px solid var(--rhodamine); padding:clamp(20px,2.6vw,30px); margin-bottom:clamp(30px,4vw,44px); }
+.pull h3{
+  font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 105,'wght' 800;
+  text-transform:uppercase; font-size:clamp(17px,2.2vw,23px); margin:0 0 10px; letter-spacing:.01em;
+}
+.pull > p{ margin:0 0 18px; font-size:.93em; color:var(--paper-dim); }
+.pull ol{ margin:0 0 18px; padding-left:1.3em; font-size:.9em; color:var(--paper-dim); }
+.pull ol li{ margin-bottom:.4em; }
+.pull ol li::marker{ color:var(--rhodamine); font-family:'JetBrains Mono',monospace; font-size:.85em; }
+.pull table{ width:100%; border-collapse:collapse; font-size:.82em; }
+.pull-scroll{ overflow-x:auto; }
+.pull th{
+  text-align:left; padding:7px 12px 7px 0; border-bottom:1px solid var(--ink-edge);
+  font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--grey); font-weight:400; white-space:nowrap;
+}
+.pull td{ padding:8px 12px 8px 0; border-bottom:1px solid var(--ink-edge); vertical-align:top; color:var(--paper-dim); }
+.pull td:first-child{ font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--rhodamine); white-space:nowrap; }
+.pull td code{
+  font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--paper);
+  background:var(--ink-raise); padding:2px 5px; white-space:nowrap;
+}
 .ref .txt{ min-width:0; }
 .ref h4{
   font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 100,'wght' 800;
@@ -477,7 +513,34 @@ footer p{ color:var(--grey); font-size:.88em; }
   </div>
   <p class="lede">Five lanes, in the order I'd raid them. Not full New Romantic, not early Adam Ant, not ransom-note punk — the narrower seam you described: the moment the graphics were still hand-cut but the colour had gone neon.</p>
 
-  <p class="imgnote"><b>On the images:</b> the covers themselves aren't reproduced here — they're other people's copyrighted artwork and this page is shareable. Every entry is credited precisely enough to pull in one search, and linked. The pink discs are catalogue markers, not the sleeves.</p>
+  <div class="pull">
+    <h3>Covers — how to fill the slots</h3>
+    <p>Every entry below has a live image slot. Put eleven files into a folder called <code>covers</code> sitting next to this file and the sleeves appear — nothing to rebuild, nothing to re-export. Until then the slots read as pending, which is what you're looking at now.</p>
+    <ol>
+      <li>Make a folder named <code>covers</code> alongside <code>mood-board.html</code>.</li>
+      <li>Save each sleeve from the source linked on its card, using the filename below. Exact match, lowercase, <code>.jpg</code>.</li>
+      <li>Reopen the file.</li>
+    </ol>
+    <p>Keep them small — 600px square is plenty here, and it keeps the board quick to send. Low resolution is also the point: these are cited references under fair dealing for criticism and review, not artwork we are reproducing.</p>
+    <div class="pull-scroll">
+      <table>
+        <thead><tr><th>Slot</th><th>Filename</th><th>Sleeve</th></tr></thead>
+        <tbody>
+          <tr><td>A01</td><td><code>A01_buzzcocks_orgasm-addict.jpg</code></td><td>Buzzcocks — Orgasm Addict (1977)</td></tr>
+          <tr><td>A02</td><td><code>A02_crass_penis-envy.jpg</code></td><td>Crass — Penis Envy (1981)</td></tr>
+          <tr><td>B01</td><td><code>B01_frankie_two-tribes.jpg</code></td><td>Frankie Goes To Hollywood — Two Tribes (1984)</td></tr>
+          <tr><td>B02</td><td><code>B02_cabaret-voltaire_red-mecca.jpg</code></td><td>Cabaret Voltaire — Red Mecca (1981)</td></tr>
+          <tr><td>B03</td><td><code>B03_new-order_blue-monday.jpg</code></td><td>New Order — Blue Monday, FAC 73 (1983)</td></tr>
+          <tr><td>C01</td><td><code>C01_happy-mondays_pills-n-thrills.jpg</code></td><td>Happy Mondays — Pills 'n' Thrills and Bellyaches (1990)</td></tr>
+          <tr><td>C02</td><td><code>C02_pwei_this-is-this.jpg</code></td><td>Pop Will Eat Itself — This Is the Day… This Is This! (1989)</td></tr>
+          <tr><td>D01</td><td><code>D01_x-ray-spex_germfree-adolescents.jpg</code></td><td>X-Ray Spex — Germfree Adolescents (1978)</td></tr>
+          <tr><td>D02</td><td><code>D02_sex-pistols_never-mind-the-bollocks.jpg</code></td><td>Sex Pistols — Never Mind the Bollocks (1977)</td></tr>
+          <tr><td>E01</td><td><code>E01_depeche-mode_a-broken-frame.jpg</code></td><td>Depeche Mode — A Broken Frame (1982)</td></tr>
+          <tr><td>E02</td><td><code>E02_depeche-mode_violator.jpg</code></td><td>Depeche Mode — Violator (1990)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
   <div class="lane">
     <div class="lanehead">
@@ -487,7 +550,7 @@ footer p{ color:var(--grey); font-size:.88em; }
     </div>
     <div class="refs">
       <div class="ref">
-        <span class="label">A01</span>
+        <figure class="cover empty" data-code="A01"><img src="covers/A01_buzzcocks_orgasm-addict.jpg" alt="Sleeve artwork: Buzzcocks, Orgasm Addict, 1977" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Orgasm Addict</h4>
           <span class="credit">Buzzcocks · New Hormones · 1977<br>Montage: Linder Sterling · Design: Malcolm Garrett</span>
@@ -497,7 +560,7 @@ footer p{ color:var(--grey); font-size:.88em; }
         </div>
       </div>
       <div class="ref">
-        <span class="label b">A02</span>
+        <figure class="cover b empty" data-code="A02"><img src="covers/A02_crass_penis-envy.jpg" alt="Sleeve artwork: Crass, Penis Envy, 1981" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Penis Envy</h4>
           <span class="credit">Crass · Crass Records · 1981<br>Artwork: Gee Vaucher</span>
@@ -517,7 +580,7 @@ footer p{ color:var(--grey); font-size:.88em; }
     </div>
     <div class="refs">
       <div class="ref">
-        <span class="label">B01</span>
+        <figure class="cover empty" data-code="B01"><img src="covers/B01_frankie_two-tribes.jpg" alt="Sleeve artwork: Frankie Goes To Hollywood, Two Tribes, 1984" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Two Tribes</h4>
           <span class="credit">Frankie Goes To Hollywood · ZTT · 1984<br>Design: XL/ZTT · Photography: Anton Corbijn · Text: Paul Morley</span>
@@ -527,7 +590,7 @@ footer p{ color:var(--grey); font-size:.88em; }
         </div>
       </div>
       <div class="ref">
-        <span class="label c">B02</span>
+        <figure class="cover c empty" data-code="B02"><img src="covers/B02_cabaret-voltaire_red-mecca.jpg" alt="Sleeve artwork: Cabaret Voltaire, Red Mecca, 1981" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Red Mecca / 2x45 / Micro-Phonies</h4>
           <span class="credit">Cabaret Voltaire · Fetish &amp; Some Bizzare · 1981–84<br>Design: Neville Brody</span>
@@ -537,7 +600,7 @@ footer p{ color:var(--grey); font-size:.88em; }
         </div>
       </div>
       <div class="ref">
-        <span class="label b">B03</span>
+        <figure class="cover b empty" data-code="B03"><img src="covers/B03_new-order_blue-monday.jpg" alt="Sleeve artwork: New Order, Blue Monday, 1983" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Blue Monday (FAC 73)</h4>
           <span class="credit">New Order · Factory · 1983<br>Design: Peter Saville</span>
@@ -557,7 +620,7 @@ footer p{ color:var(--grey); font-size:.88em; }
     </div>
     <div class="refs">
       <div class="ref">
-        <span class="label">C01</span>
+        <figure class="cover empty" data-code="C01"><img src="covers/C01_happy-mondays_pills-n-thrills.jpg" alt="Sleeve artwork: Happy Mondays, Pills 'n' Thrills and Bellyaches, 1990" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Pills 'n' Thrills and Bellyaches</h4>
           <span class="credit">Happy Mondays · Factory FACT 320 · 1990<br>Design: Central Station Design</span>
@@ -567,7 +630,7 @@ footer p{ color:var(--grey); font-size:.88em; }
         </div>
       </div>
       <div class="ref">
-        <span class="label c">C02</span>
+        <figure class="cover c empty" data-code="C02"><img src="covers/C02_pwei_this-is-this.jpg" alt="Sleeve artwork: Pop Will Eat Itself, This Is the Day... This Is This!, 1989" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>This Is the Day… This Is the Hour… This Is This!</h4>
           <span class="credit">Pop Will Eat Itself · RCA · 1989<br>Design: The Designers Republic</span>
@@ -587,7 +650,7 @@ footer p{ color:var(--grey); font-size:.88em; }
     </div>
     <div class="refs">
       <div class="ref">
-        <span class="label">D01</span>
+        <figure class="cover empty" data-code="D01"><img src="covers/D01_x-ray-spex_germfree-adolescents.jpg" alt="Sleeve artwork: X-Ray Spex, Germfree Adolescents, 1978" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Germfree Adolescents</h4>
           <span class="credit">X-Ray Spex · EMI International · 1978<br>Sleeve: Cooke Key · Concept: Falcon Stuart · Photography: Trevor Key</span>
@@ -597,7 +660,7 @@ footer p{ color:var(--grey); font-size:.88em; }
         </div>
       </div>
       <div class="ref">
-        <span class="label b">D02</span>
+        <figure class="cover b empty" data-code="D02"><img src="covers/D02_sex-pistols_never-mind-the-bollocks.jpg" alt="Sleeve artwork: Sex Pistols, Never Mind the Bollocks, 1977" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>Never Mind the Bollocks</h4>
           <span class="credit">Sex Pistols · Virgin · 1977<br>Design: Jamie Reid</span>
@@ -617,7 +680,7 @@ footer p{ color:var(--grey); font-size:.88em; }
     </div>
     <div class="refs">
       <div class="ref">
-        <span class="label">E01</span>
+        <figure class="cover empty" data-code="E01"><img src="covers/E01_depeche-mode_a-broken-frame.jpg" alt="Sleeve artwork: Depeche Mode, A Broken Frame, 1982" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
           <h4>A Broken Frame</h4>
           <span class="credit">Depeche Mode · Mute · 1982<br>Photography: Brian Griffin · Design: Martyn Atkins</span>
@@ -627,13 +690,13 @@ footer p{ color:var(--grey); font-size:.88em; }
         </div>
       </div>
       <div class="ref">
-        <span class="label b">E02</span>
+        <figure class="cover b empty" data-code="E02"><img src="covers/E02_depeche-mode_violator.jpg" alt="Sleeve artwork: Depeche Mode, Violator, 1990" loading="lazy" onerror="this.remove()" onload="this.parentNode.classList.remove('empty')"></figure>
         <div class="txt">
-          <h4>Anton Corbijn, 1984–1990</h4>
-          <span class="credit">Depeche Mode, Frankie Goes To Hollywood, U2</span>
-          <p>Blown-out grain, hard contrast, subjects photographed in real places looking like they'd rather be elsewhere. Never flattering, always dignifying.</p>
-          <p class="take"><b>Take —</b> permission for imperfection. Grain and grit read as honesty; clean retouching reads as marketing, and your participants aren't a campaign, they're evidence.</p>
-          <a href="https://www.discogs.com/search/?q=Anton+Corbijn&type=all">Discogs →</a>
+          <h4>Violator</h4>
+          <span class="credit">Depeche Mode · Mute · 1990<br>Design and photography: Anton Corbijn</span>
+          <p>One red bloom on a black field and nothing else. The record inside is about desire and shame; the sleeve says it without a figure or a word of explanation.</p>
+          <p class="take"><b>Take —</b> the restraint, and the proof that one saturated colour on black can carry an emotional argument on its own. Plus the rest of Corbijn's run: blown-out grain, hard contrast, subjects who look like they'd rather be elsewhere. Never flattering, always dignifying — permission for imperfection.</p>
+          <a href="https://www.discogs.com/search/?q=Depeche+Mode+Violator&type=release">Discogs →</a>
         </div>
       </div>
     </div>
@@ -694,7 +757,7 @@ footer p{ color:var(--grey); font-size:.88em; }
 
 <footer>
   <p class="meta">Hard As Nails · Brave Males · Great Nails · Hard Data</p>
-  <p>Board compiled August 2026. Credits verified against MoMA, the V&amp;A, Art of ZTT, Factory Records and Discogs. Album artwork is reproduced nowhere on this page — every entry is credited to be pulled directly from source.</p>
+  <p>Board compiled August 2026. Credits verified against MoMA, the V&amp;A, Art of ZTT, Factory Records and Discogs. Sleeve images are cited references under fair dealing for criticism and review, reproduced at thumbnail size and credited to their designers. Internal reference document — not for publication.</p>
 </footer>
 
 </div>
