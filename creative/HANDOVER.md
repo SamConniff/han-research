@@ -76,7 +76,28 @@ The discipline is the constraint, not the colours. Punk sleeves were two-colour 
 | Rhodamine | `#E6007E` | Already live on the research site. Process magenta — the ink, not a tint. Full strength or not at all; a 40% pink is a nursery. |
 | Hot | `#FF338F` | Screen-only lift for links and states. Keep out of artwork briefs. |
 | Paper | `#F3ECEF` | Off-white with a pink bias, so whites look printed not lit. Pure `#FFF` only in the wordmark. |
-| Smiley | `#E4FF3D` | Third ink, rationed. A participant described his own nails as "neon pink and 'smiley' yellow" — the audience handed us the acid-house accent unprompted. Alerts, deadlines, campaign month only. |
+| Smiley | `#E4FF3D` | Third ink. Does the big headline statistics, and the chevron. A participant described his own nails as "neon pink and 'smiley' yellow" — the audience handed us the acid-house accent unprompted. |
+
+### The one exception: painted nails keep their own colour
+
+Added 23 Aug after seeing the treated masters. In the photography the man
+goes black and white and his nails stay exactly as he painted them — purple,
+lime, blue, orange, hot pink, whatever he chose. That sits outside the four
+inks deliberately.
+
+It earns the exception twice over. **The colour marks the act:** it lands on
+the one thing this project is actually about and on nothing else, so it stays
+meaningful rather than becoming decoration. And **it keeps the men
+individual.** A single-ink duotone flattens a fire crew and a bloke in a
+yellow jacket into one colour — that is precisely why the earlier pink wash
+was reverted. Letting each man keep his own nail colour means the range of
+them survives, in the nails rather than the clothes.
+
+It is not a licence to widen the palette. Nail colour is photographic, never
+graphic: it never appears in type, rules, panels, buttons or chevrons.
+**If a colour is not on a fingernail, it is one of the four.**
+
+Masters live in Drive at `Creative / Real Men V / Real B&W Men`.
 
 Typography on the board: Archivo (expanded heavy grotesque, display), Newsreader (body serif), JetBrains Mono (catalogue metadata). All Google Fonts.
 
