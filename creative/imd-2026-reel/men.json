@@ -1,0 +1,893 @@
+[
+{
+"slug": "marc-tobias",
+"name": "Marc Tobias",
+"words": [
+"Curiosity",
+"Empathy",
+"Openness"
+]
+},
+{
+"slug": "seq-02",
+"name": "Dafydd Griffiths",
+"words": [
+"Empathy",
+"Respect",
+"Understanding"
+]
+},
+{
+"slug": "seq-03",
+"name": "Shane L. Lloyd",
+"words": [
+"Compassionate",
+"Connected",
+"Evolving"
+]
+},
+{
+"slug": "mark-horne",
+"name": "Mark Horne",
+"words": [
+"Open",
+"Positive",
+"Supportive"
+]
+},
+{
+"slug": "seq-05",
+"name": "Jan Keck",
+"words": [
+"Empathy",
+"Present",
+"Vulnerability"
+]
+},
+{
+"slug": "seq-06",
+"name": "James Wallman",
+"words": [
+"Joyful",
+"Kind",
+"Resilient"
+]
+},
+{
+"slug": "seq-07",
+"name": "Alan De Bruyne",
+"words": [
+"Empathy",
+"Unafraid",
+"Vulnerability"
+]
+},
+{
+"slug": "seq-08",
+"name": "Anthony Cornfield",
+"words": [
+"Care",
+"Sweet",
+"Humble"
+]
+},
+{
+"slug": "luiz-rizati",
+"name": "Luiz Rizati",
+"words": [
+"Fragility",
+"Kindness",
+"Sensitivity"
+]
+},
+{
+"slug": "mauro-caveletti",
+"name": "Mauro Caveletti",
+"words": [
+"Care",
+"Compassionate",
+"Sensibility"
+]
+},
+{
+"slug": "ricardo-figueria",
+"name": "Ricardo Figueria",
+"words": [
+"Balance",
+"Kindness",
+"Sensibility"
+]
+},
+{
+"slug": "fabio-simoes",
+"name": "Fabio Sim\u00f5es",
+"words": [
+"Fluid",
+"Empathy",
+"Open"
+]
+},
+{
+"slug": "faris-yakob",
+"name": "Faris Yakob",
+"words": [
+"Kindness",
+"Optimism",
+"Pride"
+]
+},
+{
+"slug": "matt-craddock",
+"name": "Matt Craddock",
+"words": [
+"Brave",
+"Fair",
+"Honest"
+]
+},
+{
+"slug": "will-adoolphy",
+"name": "Will Adoolphy",
+"words": [
+"Bold",
+"Empathy",
+"Sassy"
+]
+},
+{
+"slug": "seq-18",
+"name": "Ian Speirs",
+"words": [
+"Courageous",
+"Empowering",
+"Open"
+]
+},
+{
+"slug": "hamish-noah",
+"name": "Hamish Noah",
+"words": [
+"Authenticity",
+"Connection",
+"Love"
+]
+},
+{
+"slug": "michael-taylor",
+"name": "Michael Taylor",
+"words": [
+"Acceptance",
+"Protection",
+"Tolerance"
+]
+},
+{
+"slug": "sanj-ambalavanar",
+"name": "Sanj Ambalavanar",
+"words": [
+"Capable",
+"Open",
+"Strong"
+]
+},
+{
+"slug": "chris-antoniades",
+"name": "Chris Antoniades",
+"words": [
+"Camaraderie",
+"Communication",
+"Connectivity"
+]
+},
+{
+"slug": "jeremy-yeates",
+"name": "Jeremy Yeates",
+"words": [
+"Caring",
+"Encouraging",
+"Happy"
+]
+},
+{
+"slug": "martijn-de-vee",
+"name": "Martijn De Vee",
+"words": [
+"Calmness",
+"Fatherhood",
+"Vulnerability"
+]
+},
+{
+"slug": "eddie-cheng",
+"name": "Eddie Cheng",
+"words": [
+"Feminine",
+"Reliability",
+"Resilience"
+]
+},
+{
+"slug": "rupert-cheswright",
+"name": "Rupert Cheswright",
+"words": [
+"Empathetic",
+"Open",
+"Trustworthy"
+]
+},
+{
+"slug": "sam-sylvester",
+"name": "Sam Sylvester",
+"words": [
+"Flexible",
+"Integrity",
+"Safety"
+]
+},
+{
+"slug": "james",
+"name": "James",
+"words": [
+"Empathy",
+"Integrity",
+"Vulnerability"
+]
+},
+{
+"slug": "chi-lo",
+"name": "Chi Lo",
+"words": [
+"Fearless",
+"Open",
+"Respectful"
+]
+},
+{
+"slug": "paul-sanbar",
+"name": "Paul Sanbar",
+"words": [
+"Accepting",
+"Playful",
+"Respectful"
+]
+},
+{
+"slug": "john-carmen",
+"name": "John Carmen",
+"words": [
+"Authentic",
+"Expansive",
+"Nurturing"
+]
+},
+{
+"slug": "nick-feeney",
+"name": "Nick Feeney",
+"words": [
+"Curiosity",
+"Kindness",
+"Open-minded"
+]
+},
+{
+"slug": "glyn-maxwell",
+"name": "Glyn Maxwell",
+"words": [
+"Curiosity",
+"Grace",
+"Goodwill"
+]
+},
+{
+"slug": "felix-velarde",
+"name": "Felix Velarde",
+"words": [
+"Curiosity",
+"Inclusivity",
+"Protection"
+]
+},
+{
+"slug": "patrick-odai",
+"name": "Patrick Odai",
+"words": [
+"Character",
+"Compassion",
+"Connection"
+]
+},
+{
+"slug": "johnny-heeks",
+"name": "Johnny Heeks",
+"words": [
+"Empathy",
+"Openness",
+"Self-love"
+]
+},
+{
+"slug": "aaron-morris",
+"name": "Aaron Morris",
+"words": [
+"Gentle",
+"Supportive",
+"Vulnerable"
+]
+},
+{
+"slug": "lee-bofkin",
+"name": "Lee Bofkin",
+"words": [
+"Forgiveness",
+"Gratitude",
+"Ubuntu"
+]
+},
+{
+"slug": "johnny-rayner",
+"name": "Johnny Rayner",
+"words": [
+"Honesty",
+"Respect",
+"Understanding"
+]
+},
+{
+"slug": "andy-bell",
+"name": "Andy Bell",
+"words": [
+"Embracing",
+"Honesty",
+"Openness"
+]
+},
+{
+"slug": "micheal-warnes",
+"name": "Micheal Warnes",
+"words": [
+"Caring",
+"Happiness",
+"Openness"
+]
+},
+{
+"slug": "sam-patel",
+"name": "Sam Patel",
+"words": [
+"Freedom",
+"Integrity",
+"Openness"
+]
+},
+{
+"slug": "kyah-mcneil",
+"name": "Kyah Mcneil",
+"words": [
+"Honour",
+"Maturity",
+"Respect"
+]
+},
+{
+"slug": "jack-etherington",
+"name": "Jack Etherington",
+"words": [
+"Kindness",
+"Respect",
+"Responsibility"
+]
+},
+{
+"slug": "finlay-oconnor",
+"name": "Finlay O'Connor",
+"words": [
+"Caring",
+"Liberated",
+"Passionate"
+]
+},
+{
+"slug": "liam-guest",
+"name": "Liam Guest",
+"words": [
+"Hopeful",
+"Liberated",
+"Non-judgmental"
+]
+},
+{
+"slug": "tom-pell",
+"name": "Tom Pell",
+"words": [
+"Confidence",
+"Empathy",
+"Tolerance"
+]
+},
+{
+"slug": "tommy-wong",
+"name": "Tommy Wong",
+"words": [
+"Decency",
+"Fairness",
+"Respect"
+]
+},
+{
+"slug": "philip-wrangle-sanders",
+"name": "Philip Wrangle Sanders",
+"words": [
+"Daring",
+"Forgiving",
+"Loving"
+]
+},
+{
+"slug": "chris-holmes",
+"name": "Chris Holmes",
+"words": [
+"Brave",
+"Giving",
+"Proud"
+]
+},
+{
+"slug": "chris-sherwood",
+"name": "Chris Sherwood",
+"words": [
+"Compassion",
+"Reflective",
+"Vulnerable"
+]
+},
+{
+"slug": "simon-blake",
+"name": "Simon Blake",
+"words": [
+"Authenticity",
+"Flexibility",
+"Freedom"
+]
+},
+{
+"slug": "wayne-arnold",
+"name": "Wayne Arnold",
+"words": [
+"Confidence",
+"Equality",
+"Non-judgmental"
+]
+},
+{
+"slug": "victor-hyll",
+"name": "Victor Hyll",
+"words": [
+"Curious",
+"Evolving",
+"Open-minded"
+]
+},
+{
+"slug": "jazz-singh",
+"name": "Jazz Singh",
+"words": [
+"Authentic",
+"Brave",
+"Raw"
+]
+},
+{
+"slug": "max-dickins",
+"name": "Max Dickins",
+"words": [
+"Contribution",
+"Friendship",
+"Playfulness"
+]
+},
+{
+"slug": "ahmed-mohideen",
+"name": "Ahmed Mohideen",
+"words": [
+"Expression",
+"Identity",
+"Individuality"
+]
+},
+{
+"slug": "curtis-weir",
+"name": "Curtis Weir",
+"words": [
+"Balanced",
+"Caring",
+"Vulnerable"
+]
+},
+{
+"slug": "chris-horn",
+"name": "Chris Horn",
+"words": [
+"Accountable",
+"Compassionate",
+"Curious"
+]
+},
+{
+"slug": "paul-greatbatch",
+"name": "Paul Greatbatch",
+"words": [
+"Aware",
+"Open",
+"Sensitive"
+]
+},
+{
+"slug": "dave-lowe",
+"name": "Dave Lowe",
+"words": [
+"Confident",
+"Nurturing",
+"Open"
+]
+},
+{
+"slug": "matt-boulter",
+"name": "Matt Boulter",
+"words": [
+"Compassion",
+"Courage",
+"Hope"
+]
+},
+{
+"slug": "dave-netley",
+"name": "Dave Netley",
+"words": [
+"Accepting",
+"Open",
+"Righteous"
+]
+},
+{
+"slug": "kiran-fraser-neve",
+"name": "Kiran Fraser-Neve",
+"words": [
+"Empathy",
+"Fearless",
+"Openness"
+]
+},
+{
+"slug": "richard-loftus",
+"name": "Richard Loftus",
+"words": [
+"Adaptability",
+"Empathy",
+"Warmth"
+]
+},
+{
+"slug": "justin-north",
+"name": "Justin North",
+"words": [
+"Accountability",
+"Empathy",
+"Transparency"
+]
+},
+{
+"slug": "kevin-oneil",
+"name": "Kevin O\u2019Neil",
+"words": [
+"Aware",
+"Engaged",
+"Open"
+]
+},
+{
+"slug": "dhiren-doshi-smith",
+"name": "Dhiren Doshi-Smith",
+"words": [
+"Accepting",
+"Attuned",
+"Secure"
+]
+},
+{
+"slug": "pascal-barker",
+"name": "Pascal Barker",
+"words": [
+"Bravery",
+"Honesty",
+"Vulnerability"
+]
+},
+{
+"slug": "neil-poulter",
+"name": "Neil Poulter",
+"words": [
+"Bold",
+"Brave",
+"Intentional"
+]
+},
+{
+"slug": "oliver-hebdon",
+"name": "Oliver Hebdon",
+"words": [
+"Approachable",
+"Open",
+"Supportive"
+]
+},
+{
+"slug": "jack-masters",
+"name": "Jack Masters",
+"words": [
+"Fabulous",
+"Honesty",
+"Respect"
+]
+},
+{
+"slug": "jack-davies",
+"name": "Jack Davies",
+"words": [
+"Authentic",
+"Open",
+"Tolerable"
+]
+},
+{
+"slug": "ben-wickham",
+"name": "Ben Wickham",
+"words": [
+"Kindness",
+"Openness",
+"Purposeful"
+]
+},
+{
+"slug": "jacopo-vana",
+"name": "Jacopo Vana",
+"words": [
+"Community",
+"Freedom",
+"Unlabelled"
+]
+},
+{
+"slug": "robert-baker",
+"name": "Robert Baker",
+"words": [
+"Curiosity",
+"Humility",
+"Vulnerability"
+]
+},
+{
+"slug": "khanya-nzuza",
+"name": "Khanya Nzuza",
+"words": [
+"Aware",
+"Intimacy",
+"Vulnerability"
+]
+},
+{
+"slug": "ntukhuko-nzuza",
+"name": "Ntukhuko Nzuza",
+"words": [
+"Humility",
+"Kindness",
+"Thoughtfulness"
+]
+},
+{
+"slug": "matt-norgate",
+"name": "Matt Norgate",
+"words": [
+"Empathy",
+"Honesty",
+"Liberated"
+]
+},
+{
+"slug": "zack-hersov",
+"name": "Zack Hersov",
+"words": [
+"Compassion",
+"Honesty",
+"Kindness"
+]
+},
+{
+"slug": "patrick-garvin",
+"name": "Patrick Garvin",
+"words": [
+"Collaborative",
+"Supportive",
+"Understanding"
+]
+},
+{
+"slug": "danny-weitzkorn",
+"name": "Danny Weitzkorn",
+"words": [
+"Care",
+"Empathy",
+"Freedom"
+]
+},
+{
+"slug": "jack-wallis",
+"name": "Jack Wallis",
+"words": [
+"Empathy",
+"Listening",
+"Patience"
+]
+},
+{
+"slug": "simo",
+"name": "Simo",
+"words": [
+"Compassion",
+"Confidence",
+"Originality"
+]
+},
+{
+"slug": "ryan-vyse",
+"name": "Ryan Vyse",
+"words": [
+"Confidence",
+"Evolving",
+"Together"
+]
+},
+{
+"slug": "chris-smith",
+"name": "Chris Smith",
+"words": [
+"Powerful",
+"Safe",
+"Vulnerable"
+]
+},
+{
+"slug": "chris-tanner",
+"name": "Chris Tanner",
+"words": [
+"Curiosity",
+"Honesty",
+"Self-awareness"
+]
+},
+{
+"slug": "jit-thaker",
+"name": "Jit Thaker",
+"words": [
+"Courageous",
+"Honesty",
+"Resilience"
+]
+},
+{
+"slug": "phil-bartlett",
+"name": "Phil Bartlett",
+"words": [
+"Courageous",
+"Kind",
+"Self-aware"
+]
+},
+{
+"slug": "elliot-milne",
+"name": "Elliot Milne",
+"words": [
+"Honest",
+"Kind",
+"Open"
+]
+},
+{
+"slug": "connor-davey",
+"name": "Connor Davey",
+"words": [
+"Authentic",
+"Kind",
+"Vulnerable"
+]
+},
+{
+"slug": "danny-sapani",
+"name": "Danny Sapani",
+"words": [
+"Free",
+"Loving",
+"Supportive"
+]
+},
+{
+"slug": "paul-lambert",
+"name": "Paul Lambert",
+"words": [
+"Honest",
+"Loving",
+"Supportive"
+]
+},
+{
+"slug": "mark-newey",
+"name": "Mark Newey",
+"words": [
+"Authentic",
+"Compassionate",
+"Inspirational"
+]
+},
+{
+"slug": "abid-david",
+"name": "Abid David",
+"words": [
+"Kindness",
+"Protection",
+"Respect"
+]
+},
+{
+"slug": "james-haskell",
+"name": "James Haskell",
+"words": [
+"Compassion",
+"Honesty",
+"Self-awareness"
+]
+},
+{
+"slug": "unnamed-50939784",
+"name": "Bruno Freitas",
+"words": [
+"Acceptance",
+"Light",
+"Wisdom"
+]
+},
+{
+"slug": "unnamed-b1da7511",
+"name": "Davy Lazare",
+"words": [
+"Connected",
+"Ego Death",
+"Warmth"
+]
+},
+{
+"slug": "benjamin-perkins",
+"name": "Benjamin Perkins",
+"words": [
+"Empathy",
+"Kindness",
+"Strength"
+]
+},
+{
+"slug": "deepesh-patel",
+"name": "Deepesh Patel",
+"words": [
+"Honesty",
+"Integrity",
+"Kindness"
+]
+},
+{
+"slug": "nick-blunden",
+"name": "Nick Blunden",
+"words": [
+"Courage",
+"Empathy",
+"Inclusivity"
+]
+}
+]

@@ -1,0 +1,294 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>IMD Reel</title>
+<style>
+@font-face{font-family:'Inter';font-weight:100 900;src:url(fonts/inter-latin.woff2) format('woff2')}
+@font-face{font-family:'Inter Tight';font-weight:100 900;src:url(fonts/intertight-latin.woff2) format('woff2')}
+:root{--black:#0A0709;--pink:#E6007E;--pink-deep:#C8006D;--acid:#E4FF3D;--paper:#F3ECEF;--dim:#B9AAB1;--line:#2A1F26;
+  --display:'Inter Tight',Arial,sans-serif;--body:'Inter',Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--black)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--black);color:var(--paper);font-family:var(--body)}
+.layer{position:absolute;inset:0;opacity:0}
+.ground{background-color:var(--black);background-image:radial-gradient(circle at center,rgba(230,0,126,.32) 1px,transparent 1.3px);background-size:7px 7px}
+.disp{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.9}
+/* type block: hard ink, hairline rule above, never a box */
+.block{position:absolute;left:0;right:0;background:var(--black);padding:44px 64px 64px;border-top:3px solid var(--pink)}
+.eyebrow{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:30px;color:var(--pink);margin-bottom:22px}
+.lede{font-size:50px;line-height:1.18;font-weight:500;margin-top:26px;max-width:950px}
+.acid{color:var(--acid)}
+.pink{color:var(--pink)}
+.ln{display:block;will-change:transform,opacity}
+/* daniele photo scenes */
+.photo{position:absolute;left:0;right:0;top:0;height:1300px;background-size:cover;background-position:center top}
+.photo.missing{background-image:url(img/ground-screen.jpg);opacity:.38;filter:grayscale(1)}
+/* wall */
+#wall{display:grid;grid-template-columns:repeat(9,120px);grid-template-rows:repeat(11,174.5px)}
+#wall div{background-size:cover;background-position:center 30%;opacity:0}
+/* words */
+#words{position:absolute;left:44px;top:170px;width:992px}
+#words span{position:absolute;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap;line-height:1;transform-origin:0 0;opacity:0}
+#measure{position:absolute;left:44px;top:170px;width:992px;display:flex;flex-wrap:wrap;gap:6px 18px;visibility:hidden}
+#measure span{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap;line-height:1}
+.rank{position:absolute;left:64px;display:flex;align-items:baseline;gap:30px;opacity:0}
+.rank b{font-family:var(--display);font-weight:900;font-size:64px;color:var(--acid);width:96px}
+.rank i{font-style:normal;font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:116px;letter-spacing:-.03em;line-height:1}
+/* heroes */
+.hero .pic{position:absolute;left:0;right:0;top:0;height:1240px;background-size:1350px auto;background-position:center top}
+.hero .block{bottom:0;height:680px;padding-top:60px}
+.hero .word{font-size:190px;display:inline-block;white-space:nowrap}
+/* persistent wordmark on a hard ink tab */
+#wm{position:absolute;left:0;top:56px;background:var(--black);padding:16px 26px 16px 64px;font-family:var(--display);font-weight:900;font-size:34px;letter-spacing:.06em;text-transform:uppercase;color:var(--paper);z-index:20}
+#wm span{color:var(--pink)}
+#wall div.feat{z-index:5;position:relative}
+/* end */
+.endline{position:absolute;left:0;right:0;display:flex;justify-content:center;font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:1;white-space:pre}
+.endline span{display:inline-block;overflow:hidden;vertical-align:bottom;flex:none}
+</style></head>
+<body>
+<div id="stage">
+
+  <!-- S0: Daniele, portrait -->
+  <section class="layer" id="s0">
+    <div class="ground" style="position:absolute;inset:0"></div>
+    <div class="photo" data-src="img/daniele-0.jpg" style="height:1500px"></div>
+    <div class="block" style="bottom:0;height:460px">
+      <div class="eyebrow ln">A man worth celebrating</div>
+      <div class="disp ln" style="font-size:132px">Daniele<br>Fiandaca</div>
+    </div>
+  </section>
+
+  <!-- S1: Daniele, nails -->
+  <section class="layer" id="s1">
+    <div class="ground" style="position:absolute;inset:0"></div>
+    <div class="photo" data-src="img/daniele-1.jpg" style="height:1540px"></div>
+    <div class="block" style="bottom:0;height:400px">
+      <div class="lede ln" style="margin-top:0;font-size:60px">believed in Hard As Nails so much, he trained as a nail technician.</div>
+    </div>
+  </section>
+
+  <!-- S2: Daniele, certificate -->
+  <section class="layer" id="s2">
+    <div class="ground" style="position:absolute;inset:0"></div>
+    <div class="photo" data-src="img/daniele-2.jpg" style="height:1560px"></div>
+    <div class="block" style="bottom:0;height:400px">
+      <div class="eyebrow ln">Shoreditch Nails, March 2025</div>
+      <div class="disp ln" style="font-size:150px">Qualified.</div>
+    </div>
+  </section>
+
+  <!-- S2b: with his tutor -->
+  <section class="layer" id="s2b">
+    <div class="ground" style="position:absolute;inset:0"></div>
+    <div class="photo" data-src="img/daniele-3.jpg" style="height:1560px"></div>
+    <div class="block" style="bottom:0;height:400px">
+      <div class="lede ln" style="margin-top:0">Then, to earn his chops&hellip;</div>
+    </div>
+  </section>
+
+  <!-- S3/S4: the wall -->
+  <section class="layer" id="s3">
+    <div id="wall" style="position:absolute;inset:0"></div>
+    <div class="block" id="b3" style="top:640px;height:640px;border-bottom:0">
+      <div class="lede ln" style="margin-top:0">he painted</div>
+      <div class="disp ln" style="font-size:150px;margin-top:22px"><span class="acid">100</span> men's<br>nails</div>
+      <div class="lede ln">up and down the country.</div>
+    </div>
+    <div class="block" id="b4" style="top:640px;height:640px;opacity:0">
+      <div class="lede ln" style="margin-top:0">And asked every one of them for</div>
+      <div class="disp ln" style="font-size:150px;margin-top:22px">Three<br>words</div>
+      <div class="lede ln">he'd want masculinity to stand for.</div>
+    </div>
+  </section>
+
+  <!-- S5/S6: the words -->
+  <section class="layer ground" id="s5">
+    <div id="measure"></div>
+    <div id="words"></div>
+    <div class="eyebrow" id="top5h" style="position:absolute;left:64px;top:300px;opacity:0">99 men, three words each. The top five:</div>
+    <div id="ranks"></div>
+  </section>
+
+  <!-- S7: the project -->
+  <section class="layer" id="s7" style="background:var(--pink-deep)">
+    <div style="position:absolute;left:64px;right:64px;top:560px">
+      <div class="eyebrow ln" style="color:var(--paper)">That became</div>
+      <div class="disp ln" style="font-size:200px">The<br>100 Men<br>Project</div>
+      <div class="lede ln" style="margin-top:50px">And a vision of healthy masculinity came into focus.</div>
+    </div>
+  </section>
+
+  <!-- S8: heroes, built in JS -->
+  <div id="heroes"></div>
+
+  <!-- S8b: The Times -->
+  <section class="layer" id="s8b">
+    <div class="ground" style="position:absolute;inset:0"></div>
+    <img id="times" src="img/times-full.jpg" style="position:absolute;left:0;top:0;width:1932px;height:2576px;transform-origin:0 0">
+  </section>
+
+  <!-- S9: end -->
+  <section class="layer" id="s9">
+    <div class="endline" id="e1" style="top:760px;color:var(--pink)"></div>
+    <div class="endline" id="e2" style="top:960px"></div>
+    <div class="endline acid" id="e3" style="top:1180px;opacity:0;font-size:150px">2026</div>
+  </section>
+
+  <!-- S10: sign up -->
+  <section class="layer ground" id="s10">
+    <div style="position:absolute;left:64px;right:64px;top:300px">
+      <div class="eyebrow ln">International Men's Day 2026</div>
+      <div class="disp ln" style="font-size:150px">Sign up to<br><span class="pink">Hard As Nails</span></div>
+      <img class="ln" src="img/qr-signup.svg" style="display:block;width:520px;height:520px;margin-top:70px">
+      <div class="lede ln" style="font-size:44px;margin-top:34px">hard-as-nails.com/signup</div>
+    </div>
+  </section>
+
+  <div id="wm">Hard As Nails<span>.</span></div>
+
+</div>
+<script>
+const MEN = __MEN__;
+const HEROES = [[3,'Open'],[4,'Empathy'],[5,'Kind'],[34,'Vulnerable'],[13,'Honest']];
+const TOP = [['Open',/^open/i],['Empathy',/^empath/i],['Kind',/^kind/i],['Vulnerable',/^vulnerab/i],['Honest',/^honest/i]];
+const $ = s => document.querySelector(s);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>clamp((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);            // ease out
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const lerp=(a,b,p)=>a+(b-a)*p;
+let rnd=7; const rand=()=>{rnd=(rnd*16807)%2147483647;return rnd/2147483647};
+
+// Photos: use Daniele's if present, else the screened ground
+document.querySelectorAll('.photo').forEach(el=>{
+  const im=new Image(); im.onload=()=>{el.style.backgroundImage=`url(${el.dataset.src})`}; im.onerror=()=>el.classList.add('missing'); im.src=el.dataset.src;
+});
+
+// Wall
+const wall=$('#wall'); const order=MEN.map((_,i)=>i).sort(()=>rand()-.5);
+const tiles=MEN.map(m=>{const d=document.createElement('div');d.style.backgroundImage=`url(img/100men/${m.slug}-320.webp)`;wall.appendChild(d);return d});
+const outOrder=MEN.map((_,i)=>i).sort(()=>rand()-.5);
+
+// Heroes
+const heroWrap=$('#heroes');
+const heroEls=HEROES.map(([i,w],k)=>{const m=MEN[i];const s=document.createElement('section');s.className='layer hero';
+  s.innerHTML=`<div class="pic" style="background-image:url(img/100men/${m.slug}-1080.webp)"></div>
+  <div class="block"><div class="eyebrow">0${k+1} &nbsp;·&nbsp; ${m.name}</div><div class="disp word ln">${w}</div></div>`;heroWrap.appendChild(s);return s});
+
+// End lockup: letters that survive are the initials
+function buildLine(el,text,keep,size){el.style.fontSize=size+'px';el.innerHTML='';
+  return [...text].map((ch,i)=>{const s=document.createElement('span');s.textContent=ch;el.appendChild(s);return {s,keep:keep.includes(i),w:0}})}
+const L1=buildLine($('#e1'),'HARD AS NAILS',[0,5,8],128);
+const L2=buildLine($('#e2'),"INTERNATIONAL MEN'S DAY",[0,14,20],80);
+let END={};
+function initEnd(){
+  // widths at 100px, then size each line so both run the same width
+  const wAt=(L,f)=>{L[0].s.parentNode.style.fontSize=f+'px';L.forEach(o=>{o.s.style.width='';});
+    let all=0,keep=0;L.forEach(o=>{const w=o.s.getBoundingClientRect().width;o.w100=w*100/f;all+=w;if(o.keep)keep+=w});return {all:all*100/f,keep:keep*100/f}};
+  const a=wAt(L1,100), b=wAt(L2,100);
+  const W0=900, W1=820;
+  END={f1a:100*W0/a.all, f2a:100*W0/b.all, f1b:100*W1/a.keep, f2b:100*W1/b.keep};
+}
+
+function show(el,o){el.style.opacity=o}
+function lines(scope,t,start,step=.35){scope.querySelectorAll('.ln').forEach((l,i)=>{const p=eo(seg(t,start+i*step,start+i*step+.5));l.style.opacity=p;l.style.transform=`translateY(${(1-p)*40}px)`})}
+
+const FEAT=[17,19,83];
+FEAT.forEach(i=>{tiles[i].classList.add('feat');tiles[i].style.backgroundSize='166% auto';tiles[i].style.backgroundPosition='center 0%';tiles[i].style.backgroundImage=`url(img/100men/${MEN[i].slug}-1080.webp)`});
+const T={s0:0,s1:4.0,s2:8.5,s2b:12.5,s3:16.0,flood:18.9,s4:23.3,s5:27.3,top:31.3,conv:32.3,s7:36.3,s8:39.7,s8b:46.7,s9:52.7,s10:59.7,end:66.5};
+window.DURATION=T.end;
+
+window.render=function(t){
+  // S0, S1
+  show($('#s0'), t<T.s1 ? eo(seg(t,0,.4)) : 0); lines($('#s0'),t,.5,.5);
+  $('#s0 .photo').style.transform=`scale(${1.06-0.06*seg(t,0,T.s1)})`;
+  show($('#s1'), t>=T.s1&&t<T.s2?1:0); lines($('#s1'),t,T.s1+.3,.6);
+  $('#s1 .photo').style.transform=`scale(${1.06-0.06*seg(t,T.s1,T.s2)})`;
+  // S2, S2b
+  show($('#s2'), t>=T.s2&&t<T.s2b?1:0); lines($('#s2'),t,T.s2+.4,.4);
+  $('#s2 .photo').style.transform=`scale(${1.06-0.06*seg(t,T.s2,T.s2b)})`;
+  show($('#s2b'), t>=T.s2b&&t<T.s3?1:0); lines($('#s2b'),t,T.s2b+1.2,.4);
+  $('#s2b .photo').style.transform=`scale(${1.06-0.06*seg(t,T.s2b,T.s3)})`;
+  // S3 wall: three men big first, then everyone
+  show($('#s3'), t>=T.s3&&t<T.s5?1:0);
+  let k2=0;
+  order.forEach(idx=>{
+    const out=outOrder.indexOf(idx), b=T.s5-0.9+out*0.008, q=seg(t,b,b+.12);
+    const fk=FEAT.indexOf(idx);
+    if(fk>=0){const a=T.s3+fk*0.95, p=eo(seg(t,a,a+.3)), m=eio(seg(t,a+.6,a+1.05));
+      const cx=(idx%9)*120+60, cy=Math.floor(idx/9)*174.5+87.25, dx=540-cx, dy=820-cy;
+      tiles[idx].style.opacity=p*(1-q);
+      tiles[idx].style.transform=`translate(${dx*(1-m)}px,${dy*(1-m)}px) scale(${lerp(5.4,1,m)*(1.06-.06*p)})`;
+      tiles[idx].style.zIndex=m<1?5:1;
+    } else {const a=T.flood+(k2++)*0.021, p=eo(seg(t,a,a+.22));
+      tiles[idx].style.opacity=p*(1-q); tiles[idx].style.transform=`scale(${1.25-.25*p})`}
+  });
+  const b3=$('#b3'), b4=$('#b4');
+  b3.style.opacity = t<T.s4?eo(seg(t,T.flood+.9,T.flood+1.2)):0; lines(b3,t,T.flood+1.0,.4);
+  b4.style.opacity = t>=T.s4?1:0; lines(b4,t,T.s4+.1,.45);
+  // S5 words
+  show($('#s5'), t>=T.s5&&t<T.s7?1:0);
+  const n=W.length;
+  W.forEach((o,k)=>{const a=T.s5+k*(2.7/n), p=seg(t,a,a+.14); const el=o.el;
+    const hl=seg(t,T.top,T.top+.35);
+    let col='var(--paper)', op=p, tf=`scale(${1.4-.4*eo(p)})`;
+    if(o.top>=0){ if(hl>0) col='var(--pink)';
+      const c=eio(seg(t,T.conv+o.top*.12,T.conv+o.top*.12+1.1));
+      if(c>0){const tx=190, ty=RANK_Y(o.top); const sc=lerp(1,116/fs,c);
+        tf=`translate(${(tx-o.x-44)*c}px,${(ty-o.y-parseFloat(wordsEl.style.top))*c}px) scale(${sc})`; op=1-seg(c,.6,1)}
+    } else { op=p*(1-.75*hl)*(1-seg(t,T.conv,T.conv+.5)); }
+    el.style.opacity=op; el.style.color=col; el.style.transform=tf});
+  $('#top5h').style.opacity=eo(seg(t,T.conv+1.2,T.conv+1.6));
+  rankEls.forEach((r,i)=>{const p=eo(seg(t,T.conv+i*.12+.85,T.conv+i*.12+1.2)); r.style.opacity=p});
+  // S7
+  show($('#s7'), t>=T.s7&&t<T.s8?1:0); lines($('#s7'),t,T.s7+.15,.4);
+  // S8 heroes
+  const hd=(T.s8b-T.s8)/heroEls.length;
+  heroEls.forEach((h,k)=>{const a=T.s8+k*hd; show(h, t>=a&&t<a+hd?1:0);
+    h.querySelector('.pic').style.transform=`scale(${1.08-.08*seg(t,a,a+hd)})`;
+    const w=h.querySelector('.word'), p=eo(seg(t,a+.1,a+.45)); w.style.opacity=p; w.style.transform=`translateY(${(1-p)*50}px)`});
+  // The Times: close on Daniele, pull back to the page, fade
+  show($('#s8b'), t>=T.s8b&&t<T.s9 ? 1-seg(t,T.s9-.6,T.s9) : 0);
+  { const z=eio(seg(t,T.s8b+1.0,T.s8b+4.4));
+    const w=Math.exp(lerp(Math.log(260),Math.log(1449),z)), cx=lerp(1150,982,z), cy=lerp(860,1288,z), k=1080/w;
+    $('#times').style.transform=`translate(${540-cx*k}px,${960-cy*k}px) scale(${k})`; }
+  // S9 end lockup
+  show($('#s9'), t>=T.s9&&t<T.s10?1:0);
+  const e=T.s9;
+  const a1=eo(seg(t,e+.2,e+.6)), a2=eo(seg(t,e+1.2,e+1.6));
+  $('#e1').style.opacity=a1; $('#e2').style.opacity=a2;
+  const m=eio(seg(t,e+2.8,e+4.0)), grow=eio(seg(t,e+3.8,e+4.7));
+  const f1=lerp(END.f1a,END.f1b,grow), f2=lerp(END.f2a,END.f2b,grow);
+  const top1=lerp(800,520,grow), top2=top1+f1*0.86+lerp(30,40,grow);
+  [[L1,f1,top1],[L2,f2,top2]].forEach(([L,f,y])=>{const el=L[0].s.parentNode; el.style.fontSize=f+'px'; el.style.top=y+'px';
+    L.forEach(o=>{ if(o.keep){o.s.style.width='';o.s.style.opacity=1}
+      else{o.s.style.width=(o.w100*f/100*(1-m))+'px';o.s.style.opacity=1-clamp(m*2.2)} }) });
+  const y=eo(seg(t,e+4.7,e+5.2)); const e3=$('#e3'); e3.style.fontSize='170px'; e3.style.opacity=y; e3.style.top=(top2+f2*0.9+50+(1-y)*40)+'px';
+  // wordmark: everywhere except the lockup, which is the logo
+  $('#wm').style.opacity = (t<T.s9 || t>=T.s10) ? 1 : 0;
+  // S10 sign up
+  show($('#s10'), t>=T.s10?1:0); lines($('#s10'),t,T.s10+.2,.3);
+};
+let W,rankEls,fs=40,spans=[],wordsEl; const RANK_Y=i=>420+i*250; const ranks=$('#ranks');
+function initWords(){
+// Words: every token, shuffled
+let tokens=[]; MEN.forEach(m=>m.words.forEach(w=>tokens.push(w)));
+tokens.sort(()=>rand()-.5);
+var measure=$("#measure"); wordsEl=$('#words');
+fs=40; spans=[];
+function layout(){
+  measure.innerHTML=''; measure.style.gap=`${fs*.18}px ${fs*.42}px`;
+  spans=tokens.map(w=>{const s=document.createElement('span');s.textContent=w;s.style.fontSize=fs+'px';measure.appendChild(s);return s});
+}
+layout(); while(measure.offsetHeight>1680 && fs>14){fs-=1;layout()}
+W=tokens.map((w,i)=>{const r=spans[i];const o={w,x:r.offsetLeft,y:r.offsetTop,top:TOP.findIndex(t=>t[1].test(w))};
+  const s=document.createElement('span');s.textContent=w;s.style.fontSize=fs+'px';s.style.left=o.x+'px';s.style.top=o.y+'px';wordsEl.appendChild(s);o.el=s;return o});
+// stagger the vertical centring of the cloud
+wordsEl.style.top=(170+(1680-measure.offsetHeight)/2)+'px';
+rankEls=TOP.map((t,i)=>{const d=document.createElement('div');d.className='rank';d.style.top=RANK_Y(i)+'px';d.innerHTML=`<b>0${i+1}</b><i>${t[0]}</i>`;ranks.appendChild(d);return d});
+
+
+}
+window.READY=document.fonts.ready.then(()=>new Promise(r=>setTimeout(r,400))).then(()=>{initWords();initEnd();document.querySelectorAll('.hero .word').forEach(w=>{let f=190;w.style.fontSize=f+'px';while(w.scrollWidth>950&&f>60){f-=4;w.style.fontSize=f+'px'}})});
+</script>
+</body></html>
