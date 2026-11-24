@@ -209,7 +209,7 @@ def end_card():
     blocks(d, ["JOIN OR NOMINATE A MAN."], 60, 1330, 66, fill=PAPER, bg=PINK_DEEP, pad=(24, 16))
     d.rectangle([60, 1400, 1020, 1402], fill=rgb(PAPER))
     d.text((60, 1424), URL, font=font(51, 700, "inter"), fill=rgb(PAPER))
-    d.text((60, 1510), "AI-GENERATED SAM. REAL TRIAL.", font=font(27, 700, "inter"), fill=rgb(PAPER))
+    d.text((60, 1510), "PART AI SAM. REAL TRIAL.", font=font(27, 700, "inter"), fill=rgb(PAPER))
     return im
 
 def frame(t):
