@@ -223,7 +223,7 @@ def frame(t):
     elif t < 22.28: img = clip("hands", (t - 21.45) + 0.4)
     elif t < 25.42: img = clip("fish", (t - 22.28) * 1.55)
     elif t < 29.50: img = zoom(clip("arms", t - 25.42), 1.0 if t < 27.04 else 1.4, 0.55, 0.25)
-    elif t < 32.52: img = zoom(still_s1(), punch(t, 29.52), 0.45, 0.24)
+    elif t < 32.52: img = zoom(clip("run", (t - 29.50) * 1.0), 1.0 if t < 31.02 else 1.35, 0.5, 0.22)
     elif t < 34.62: img = clip("hands", (t - 32.52) + 2.2)
     elif t < 39.90: img = zoom(clip("coin", (t - 34.62) * 0.95), 1.0 if t < 38.10 else 1.3, 0.5, 0.42)
     elif t < 43.68: img = grid(t, [1] * PLACES)
