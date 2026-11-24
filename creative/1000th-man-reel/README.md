@@ -12,5 +12,6 @@
 - **Photo slots to fill.** Drop the file in and render again:
   - `img/sam-first.jpg`: Sam's first nails, on his own (early Instagram). Until it arrives, a marked placeholder shows.
   - `img/daniele-selfie.jpg`: Daniele's selfie from the Leaders in Sport and Salesforce decks. Falls back to `img/daniele-0.jpg`.
-- `img/group-20.jpg` is `assets/photo-orgs-group.jpg` from the site.
+- The "Then twenty" montage: `img/g1-trio.jpg`, `g2-vitacoco.jpg`, `g3-salon.jpg`, `group-20.jpg` (from the site), `g4-pub.jpg`, `g5-stage.jpg`. Sam sent these on 24 Nov 2026. Check consent before posting: some show women nail techs and partner logos.
+- The Daniele slot uses `daniele-0.jpg`, the WhatsApp photo from November 2024.
 - Stats on screen: "fear of judgement halved" and "willingness to stand up for others doubled", both from the approved stats card. The target is half a million.
