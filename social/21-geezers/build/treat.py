@@ -82,9 +82,10 @@ def ground(lum, pitch=26):
     d = dots(lum, pitch, w, h)[..., None]
     return BLACK * (1 - d) + PINK * d
 
-def treat(rgb, use_seg=True, hue=0, bg_gain=1.0, pitch=26, return_parts=False):
+def treat(rgb, use_seg=True, hue=0, bg_gain=1.0, pitch=26, return_parts=False, nails=True, flat_bg=None):
+    """nails=False for real colour footage (nothing to key); flat_bg sets an even screen behind a dark room."""
     rgb = cover(rgb)
-    nm = nail_mask(rgb)[..., None]
+    nm = nail_mask(rgb)[..., None] if nails else np.zeros(rgb.shape[:2] + (1,), np.float32)
     plate = man_plate(rgb)[..., None]
     man = BLACK + (PAPER - BLACK) * plate
     f = rgb.astype(np.float32)
@@ -98,6 +99,7 @@ def treat(rgb, use_seg=True, hue=0, bg_gain=1.0, pitch=26, return_parts=False):
         pm = np.maximum(pm, nm[..., 0])[..., None]
         lum = cv2.GaussianBlur(cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY), (0, 0), 14).astype(np.float32) / 255
         lum = np.clip((lum - 0.12) * 1.3 * bg_gain, 0, 0.6)
+        if flat_bg is not None: lum = np.full_like(lum, flat_bg)
         out = ground(lum, pitch) * (1 - pm) + man * pm
     else:
         pm = np.ones(rgb.shape[:2] + (1,), np.float32); out = man
