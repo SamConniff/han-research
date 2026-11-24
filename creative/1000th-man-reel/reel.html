@@ -1,0 +1,201 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>1000th Man Reel</title>
+<style>
+@font-face{font-family:'Inter';font-weight:100 900;src:url(fonts/inter-latin.woff2) format('woff2')}
+@font-face{font-family:'Inter Tight';font-weight:100 900;src:url(fonts/intertight-latin.woff2) format('woff2')}
+:root{--black:#0A0709;--pink:#E6007E;--pink-deep:#C8006D;--acid:#E4FF3D;--paper:#F3ECEF;
+  --display:'Inter Tight',Arial,sans-serif;--body:'Inter',Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--black)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--black);color:var(--paper);font-family:var(--body)}
+.layer{position:absolute;inset:0;opacity:0}
+.ground{position:absolute;inset:0;background-color:var(--black);background-image:radial-gradient(circle at center,rgba(230,0,126,.32) 1px,transparent 1.3px);background-size:7px 7px}
+.disp{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.9}
+.block{position:absolute;left:0;right:0;bottom:0;background:var(--black);padding:48px 64px 70px;border-top:3px solid var(--pink)}
+.eyebrow{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:30px;color:var(--pink);margin-bottom:22px}
+.lede{font-size:58px;line-height:1.16;font-weight:500;max-width:950px}
+.lede b{font-weight:800}
+.acid{color:var(--acid)} .pink{color:var(--pink)}
+.ln{display:block;opacity:0}
+.photo{position:absolute;left:0;right:0;top:0;height:1400px;background-size:cover;background-position:center 30%;transform-origin:50% 40%}
+.photo.missing{background-image:url(img/ground-screen.jpg);filter:grayscale(1);opacity:.4}
+.todo{position:absolute;left:64px;top:620px;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:34px;color:var(--paper);display:none}
+.photo.missing + .todo{display:block}
+/* the counter: acid does the numbers */
+#count{position:absolute;right:0;top:56px;background:var(--black);padding:6px 64px 14px 30px;z-index:20;text-align:right}
+#count .n{font-family:var(--display);font-weight:900;font-size:150px;line-height:1;color:var(--acid);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+#count .l{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);margin-top:2px}
+#wm{position:absolute;left:0;top:56px;background:var(--black);padding:16px 26px 16px 64px;font-family:var(--display);font-weight:900;font-size:34px;letter-spacing:.06em;text-transform:uppercase;color:var(--paper);z-index:20}
+#wm span{color:var(--pink)}
+/* wall */
+.wall{position:absolute;left:0;top:0;width:1080px;height:1400px;display:grid;grid-template-columns:repeat(9,120px);grid-template-rows:repeat(10,140px)}
+.wall div{background-size:cover;background-position:center 30%;opacity:0}
+/* stats */
+.stat{position:absolute;left:64px;right:64px}
+.stat .big{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:200px;line-height:.85;letter-spacing:-.04em;color:var(--acid)}
+.stat .cap{font-size:50px;font-weight:500;line-height:1.15;margin-top:18px;padding-top:18px;border-top:2px solid var(--pink);max-width:900px}
+/* text-only scenes */
+.say{position:absolute;left:64px;right:64px;top:520px}
+.say .disp{font-size:120px}
+.say .lede{margin-top:40px}
+/* the empty slot */
+#slot{position:absolute;opacity:0;display:flex;align-items:center;justify-content:center;background:var(--black);outline:3px solid var(--pink);outline-offset:-3px}
+#slot span{font-family:var(--display);font-weight:900;color:var(--acid);font-size:84px}
+/* end */
+.end{position:absolute;left:64px;right:64px;top:700px}
+</style></head>
+<body>
+<div id="stage">
+  <section class="layer" id="a">
+    <div class="ground"></div>
+    <div class="photo" data-src="img/sam-first.jpg"></div><div class="todo">Photo to come:<br>Sam, first nails, on his own</div>
+    <div class="block" style="height:470px">
+      <div class="lede ln" id="a1">The first time I got my nails painted, I felt like an idiot.</div>
+      <div class="lede ln" id="a2" style="margin-top:26px">For months, I was the only man I knew.</div>
+    </div>
+  </section>
+
+  <section class="layer" id="b">
+    <div class="ground"></div>
+    <div class="photo" data-src="img/daniele-selfie.jpg" data-fallback="img/daniele-0.jpg"></div>
+    <div class="block" style="height:470px">
+      <div class="disp ln" style="font-size:112px">Then Daniele did it.</div>
+      <div class="lede ln" style="margin-top:30px">One man is a weirdo. <b class="pink">Two is the start of something.</b></div>
+    </div>
+  </section>
+
+  <section class="layer" id="c">
+    <div class="ground"></div>
+    <div class="photo" data-src="img/group-20.jpg" style="background-position:center 40%"></div>
+    <div class="block" style="height:520px">
+      <div class="disp ln" style="font-size:150px">Then twenty.</div>
+    </div>
+  </section>
+
+  <section class="layer" id="d">
+    <div class="ground"></div>
+    <div class="wall" id="wall"></div>
+    <div class="block" style="height:520px">
+      <div class="disp ln" style="font-size:150px">Then a hundred.</div>
+    </div>
+  </section>
+
+  <section class="layer" id="e">
+    <div class="ground"></div>
+    <div class="eyebrow ln" style="position:absolute;left:64px;top:430px">What our past study found</div>
+    <div class="stat ln" style="top:520px"><div class="big">Halved</div><div class="cap">Men's fear of judgement</div></div>
+    <div class="stat ln" style="top:1000px"><div class="big">Doubled</div><div class="cap">Their willingness to stand up for others</div></div>
+  </section>
+
+  <section class="layer" id="f">
+    <div class="ground"></div>
+    <div class="say">
+      <div class="disp ln">Every man has a threshold.</div>
+      <div class="lede ln">How many men need to go first, before he will.</div>
+    </div>
+  </section>
+
+  <section class="layer" id="g">
+    <div class="ground"></div>
+    <div class="say">
+      <div class="lede ln" style="margin-top:0">Every man who does it lowers it for the next one.</div>
+      <div class="disp ln" style="margin-top:50px">That's how weird becomes <span class="pink">normal.</span></div>
+    </div>
+  </section>
+
+  <section class="layer" id="h">
+    <div class="ground"></div>
+    <div class="wall" id="wall2"></div>
+    <div id="slot"><span>?</span></div>
+    <div class="block" style="height:520px">
+      <div class="eyebrow ln">Our target: half a million men</div>
+      <div class="disp ln" style="font-size:104px">One more makes it <span class="acid">1,000.</span></div>
+      <div class="disp ln pink" style="font-size:104px;margin-top:22px">Is that you?</div>
+    </div>
+  </section>
+
+  <section class="layer" id="z">
+    <div class="ground"></div>
+    <div class="end">
+      <div class="disp ln" style="font-size:150px">Be the<br><span class="acid">1,000th</span><br>man.</div>
+      <div class="lede ln" style="margin-top:60px;padding-top:28px;border-top:3px solid var(--pink)">Get your nails painted. Take part in the research.</div>
+      <div class="eyebrow ln" style="margin-top:44px;font-size:40px;color:var(--paper)">hard-as-nails.com</div>
+    </div>
+  </section>
+
+  <div id="wm">Hard As <span>Nails</span></div>
+  <div id="count"><div class="n">1</div><div class="l">men so far</div></div>
+</div>
+<script>
+const MEN = __MEN__;
+const $=s=>document.querySelector(s);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>clamp((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+let rnd=11; const rand=()=>{rnd=(rnd*16807)%2147483647;return rnd/2147483647};
+const loads=[];
+document.querySelectorAll('.photo').forEach(el=>{loads.push(new Promise(res=>{
+  const tryS=(src,fb)=>{const im=new Image();im.onload=()=>{el.style.backgroundImage=`url(${src})`;res()};
+    im.onerror=()=>{if(fb)tryS(fb,null);else{el.classList.add('missing');res()}};im.src=src};
+  tryS(el.dataset.src,el.dataset.fallback)}))});
+// wall of the 100 men (99 portraits + room for one)
+const shuffled=MEN.map((_,i)=>i).sort(()=>rand()-.5);
+const tiles=shuffled.map(i=>{const d=document.createElement('div');d.style.backgroundImage=`url(img/100men/${MEN[i].slug}-320.webp)`;$('#wall').appendChild(d);return d});
+// ticker grid: 9 x 10, every cell flickers through faces; one cell stays empty
+const SLOT=49; const cells=[];
+for(let k=0;k<90;k++){const d=document.createElement('div');$('#wall2').appendChild(d);cells.push(d)}
+const fmt=n=>n.toLocaleString('en-GB');
+function show(el,o){el.style.opacity=o}
+function lines(scope,t,start,step=.5){scope.querySelectorAll('.ln').forEach((l,i)=>{const p=eo(seg(t,start+i*step,start+i*step+.5));l.style.opacity=p;l.style.transform=`translateY(${(1-p)*40}px)`})}
+const T={a:0,b:7.5,c:13,d:16.5,e:21.5,f:27,g:32,h:37,freeze:43,z:49,end:54};
+window.DURATION=T.end;
+window.render=function(t){
+  // A: alone
+  show($('#a'),t<T.b?eo(seg(t,0,.4)):0);
+  const a1=eo(seg(t,.6,1.1)),a2=eo(seg(t,3.6,4.1));
+  $('#a1').style.opacity=a1;$('#a1').style.transform=`translateY(${(1-a1)*40}px)`;
+  $('#a2').style.opacity=a2;$('#a2').style.transform=`translateY(${(1-a2)*40}px)`;
+  $('#a .photo').style.transform=`scale(${1.08-.08*seg(t,0,T.b)})`;
+  // B: Daniele
+  show($('#b'),t>=T.b&&t<T.c?1:0); lines($('#b'),t,T.b+.3,1.4);
+  $('#b .photo').style.transform=`scale(${1.08-.08*seg(t,T.b,T.c)})`;
+  // C: twenty
+  show($('#c'),t>=T.c&&t<T.d?1:0); lines($('#c'),t,T.c+.3);
+  $('#c .photo').style.transform=`scale(${1.1-.1*seg(t,T.c,T.d)})`;
+  // D: a hundred, tiles flood in
+  show($('#d'),t>=T.d&&t<T.e?1:0); lines($('#d'),t,T.d+1.6);
+  tiles.forEach((d,k)=>{const a=T.d+k*0.016,p=eo(seg(t,a,a+.25));d.style.opacity=p;d.style.transform=`scale(${1.2-.2*p})`});
+  // E, F, G: the science
+  show($('#e'),t>=T.e&&t<T.f?1:0); lines($('#e'),t,T.e+.2,.9);
+  show($('#f'),t>=T.f&&t<T.g?1:0); lines($('#f'),t,T.f+.2,1.3);
+  show($('#g'),t>=T.g&&t<T.h?1:0); lines($('#g'),t,T.g+.2,1.6);
+  // H: the ticker, faces flicker, count runs to 999 and freezes
+  show($('#h'),t>=T.h&&t<T.z?1:0);
+  const run=seg(t,T.h,T.freeze), frame=Math.floor(t*(run<1?lerpN(6,22,run):0.0001));
+  cells.forEach((d,k)=>{
+    if(k===SLOT){d.style.opacity=0;return}
+    const on=eo(seg(t,T.h+k*0.006,T.h+k*0.006+.2));
+    const idx=run<1?(k*7+frame*13+k*frame)%MEN.length:(k*7)%MEN.length;
+    d.style.backgroundImage=`url(img/100men/${MEN[idx].slug}-320.webp)`; d.style.opacity=on*(t>=T.freeze?.55:1)});
+  const sc=$('#wall2').children[SLOT].getBoundingClientRect(), st=$('#stage').getBoundingClientRect();
+  const sl=$('#slot'); const so=eo(seg(t,T.freeze,T.freeze+.4));
+  sl.style.left=(sc.left-st.left)+'px';sl.style.top=(sc.top-st.top)+'px';sl.style.width='120px';sl.style.height='140px';
+  sl.style.opacity=so; sl.style.transform=`scale(${1+1.2*eio(seg(t,T.freeze+.3,T.freeze+1.2))})`; sl.style.zIndex=5;
+  lines($('#h'),t,T.freeze+.9,1.3);
+  // Z: end card
+  show($('#z'),t>=T.z?1:0); lines($('#z'),t,T.z+.2,.6);
+  // counter
+  let n;
+  if(t<T.b) n=1; else if(t<T.c) n=2; else if(t<T.d) n=20; else if(t<T.h) n=100;
+  else if(t<T.freeze) n=Math.round(100+899*eio(seg(t,T.h+.3,T.freeze)));
+  else n=999;
+  $('#count .n').textContent=fmt(n);
+  $('#count').style.opacity=t<T.z?1:0;
+  $('#wm').style.opacity=1;
+};
+function lerpN(a,b,p){return a+(b-a)*p}
+window.READY=Promise.all([document.fonts.ready,...loads]).then(()=>new Promise(r=>setTimeout(r,500)));
+</script>
+</body></html>
