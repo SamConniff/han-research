@@ -129,7 +129,11 @@ def runcrew(t):
 STAT0, STAT1 = V(4) - 0.85, V(5)                               # over the tail of 'needs saving' and 'the pilot was amazing'
 CUTS = [C0, V(0), S("chant", 0), S("cert", 0), CTA0]
 
+COVER_IMG = None                                                # (COVER is the list of covered time ranges)
+if "--cover-image" in sys.argv: COVER_IMG = Image.open(sys.argv[sys.argv.index("--cover-image") + 1]).convert("RGB")
+
 def frame(t):
+    if COVER_IMG is not None and t < 0.1: return COVER_IMG              # first three frames carry the cover, so platforms can pick it
     return wipe(_frame(t), t, CUTS)
 
 def stamp(im, t):
