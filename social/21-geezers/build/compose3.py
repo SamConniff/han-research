@@ -31,7 +31,7 @@ def bigcap(d, lines, bottom=1700, width=980, cap=190, x=50, shown=None):
             d.rectangle([x, y, x + w + 40, y + h], fill=rgb(BLACK))
             cx = x + 20
             for word in ln.split(" "):
-                col = ACID if word.strip(",.?!") == N else (PINK if ln.startswith("(") else PAPER)
+                col = ACID if word.strip(",.?!") == N else (PINK if (ln.startswith("(") or ln.endswith(")")) else PAPER)
                 d.text((cx, y - int(s * 0.14)), word, font=font(s), fill=rgb(col))
                 cx += d.textlength(word + " ", font=font(s))
         y += h
