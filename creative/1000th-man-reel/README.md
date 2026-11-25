@@ -12,6 +12,5 @@
 - **Photo slots to fill.** Drop the file in and render again:
   - `img/sam-first.jpg`: Sam's first nails, on his own (early Instagram). Until it arrives, a marked placeholder shows.
   - `img/daniele-selfie.jpg`: Daniele's selfie from the Leaders in Sport and Salesforce decks. Falls back to `img/daniele-0.jpg`.
-- The "Then twenty" montage: `img/g1-trio.jpg`, `g2-vitacoco.jpg`, `g3-salon.jpg`, `group-20.jpg` (from the site), `g4-pub.jpg`, `g5-stage.jpg`. Sam sent these on 24 Nov 2026. Check consent before posting: some show women nail techs and partner logos.
-- The Daniele slot uses `daniele-0.jpg`, the WhatsApp photo from November 2024.
-- Stats on screen: "fear of judgement halved" and "willingness to stand up for others doubled", both from the approved stats card. The target is half a million.
+- Photo slots, in order: `img/sam-first.jpg` (to come), `img/daniele-0.jpg` (WhatsApp, Nov 2024), `img/first-20.jpg` (to come; falls back to the site's `group-20.jpg`), the 100 Men wall, then `g3-salon.jpg` and `g5-stage.jpg` for "Then hundreds".
+- The scale scene draws 8,500 squares, one per 1,000 men: the first is the 1,000th man, 500 pink are the target, the rest are the UK's 8.5 million midlife men (ONS mid-2024, from the stats card). The 3.5% to 10% range and "about 6%" are also from the card.
