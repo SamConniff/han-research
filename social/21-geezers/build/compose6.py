@@ -24,7 +24,7 @@ TEXT = {
     ("hook", 2): ["IF YOU'RE", "A MAN,", "LET ME KNOW"], ("hook", 3): ["COME AND JOIN", "THE CONTROL", "GROUP, YO"],
     ("hook", 4): ["I GOT", N, "PLACES TO MAKE", "THE SCIENCE", "FLOW"],
     ("nails", 0): ["DID YOU SEE ME", "WITH MY", "NAILS DONE?"], ("nails", 1): ["(OH NO)"],
-    ("nails", 2): ["DID YOU SEE ME", "WITH MY", "NAILS DONE?"], ("nails", 3): ["(OH NO,"], ("nails", 4): ["(OH NO,", "NOT AGAIN)"],
+    ("nails", 2): ["DID YOU SEE ME", "WITH MY", "NAILS DONE?"], ("nails", 3): ["(OH NO)"],
     ("verse", 0): ["SAMMY C'S", "NEVER FADING"], ("verse", 1): ["PAINTED NAILS,", "AND THE MEN", "STARTED", "CHANGING"],
     ("verse", 2): ["LESS SCARED", "OF WHAT THE LADS", "WOULD BE SAYING"], ("verse", 3): ["MORE LIKELY", "TO STEP IN", "WHEN A STRANGER", "NEEDS SAVING"],
     ("verse", 4): ["THE PILOT", "WAS AMAZING"], ("verse", 5): ["BUT ONE STUDY", "AIN'T WORTH", "CELEBRATING"],
@@ -119,7 +119,7 @@ def frame(t):
         img = zoom(clip("lipR", t), z, 0.5, 0.50); cap = 150
     elif t < C1:
         img = grid(t, [1 if t >= POP[k] else 0 for k in range(PLACES)], [t - POP[k] for k in range(PLACES)])
-    elif t < E("nails", 4) + 0.15: img = zoom(clip("lipC", t - 9.80), 1.25 if t >= S("nails", 2) else 1.0, 0.5, 0.36)
+    elif t < E("nails", 3) + 0.25: img = zoom(clip("lipC", t - 9.80), 1.25 if t >= S("nails", 2) else 1.0, 0.5, 0.36)
     elif t < V(0): return stamp(cta(*CTA_B), t)                 # the gap before the verse: first clear ask
     elif t < V(2): img = clip("fish", (t - V(0)) * 1.5)
     elif t < V(4): img = zoom(clip("arms", t - V(2)), 1.0 if t < V(3) else 1.4, 0.55, 0.25)
@@ -129,8 +129,7 @@ def frame(t):
     elif t < S("chant", 0): img = grid(t, [1] * PLACES)
     elif t < S("chant", 1): img = zoom(clip("nodsolo", (t - S("chant", 0)) % 5.0), C.punch(t, S("chant", 0), (1.0, 1.0, 1.3, 1.3)), 0.5, 0.2)
     elif t < S("chant", 2): img = zoom(clip("rave", (t - S("chant", 1)) * 1.3 + 0.3), 1.15, 0.5, 0.3)
-    elif t < S("chant", 3): img = grid(t, [1] * PLACES)
-    elif t < S("cert", 0): img = runcrew(t)
+    elif t < S("cert", 0): img = runcrew(t); cap = 112        # 21 Running Men for the whole second chant
     else: img = zoom(clip("lipF", t - 47.02), 1.25, 0.45, 0.60); cap = 118
     im = Image.fromarray(img); d = ImageDraw.Draw(im)
     for a, b, lines, times in CAPS:
