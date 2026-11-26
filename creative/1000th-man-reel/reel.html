@@ -20,6 +20,7 @@ html,body{background:var(--black)}
 .acid{color:var(--acid)} .pink{color:var(--pink)}
 .ln{display:block;opacity:0}
 .photo{position:absolute;left:0;right:0;top:0;height:1400px;background-size:cover;background-position:center 30%;transform-origin:50% 40%}
+.ocap{position:absolute;left:64px;right:64px;top:48px;opacity:0}
 .photo.land{top:440px;height:960px}
 .photo.missing{background-image:url(img/ground-screen.jpg);filter:grayscale(1);opacity:.4}
 .todo{position:absolute;left:64px;top:620px;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:34px;color:var(--paper);display:none}
@@ -52,13 +53,17 @@ html,body{background:var(--black)}
 <div id="stage">
   <section class="layer" id="a">
     <div class="ground"></div>
-    <div class="photo" data-src="img/sam-first.jpg"></div><div class="todo">Photo to come:<br>Sam, first nails, on his own</div>
-    <div class="block" style="height:470px">
-      <div class="lede ln" id="a1">The first time I got my nails painted, I felt like an idiot.</div>
-      <div class="lede ln" id="a2" style="margin-top:26px">For months, I was the only man I knew.</div>
+    <div class="photo op" data-src="img/sam-harry.jpg" style="background-position:center 55%"></div>
+    <div class="photo op" data-src="img/sam-ig-1.jpg" style="top:330px;height:1070px;background-position:center 30%"></div>
+    <div class="photo op" data-src="img/sam-ig-2.jpg" style="top:330px;height:1070px;background-position:center 30%"></div>
+    <div class="photo op" data-src="img/sam-ig-3.jpg" style="top:330px;height:1070px;background-position:center 30%"></div>
+    <div class="block" style="height:520px">
+      <div class="ocap"><div class="eyebrow">2023</div><div class="lede">It started with my daughter and a Harry Styles gig.</div></div>
+      <div class="ocap"><div class="lede">The first time I got my nails painted, I felt like an idiot.</div></div>
+      <div class="ocap"><div class="lede">For months, I was the only man I knew.</div></div>
+      <div class="ocap"><div class="lede">I kept going back anyway.</div></div>
     </div>
   </section>
-
   <section class="layer" id="b">
     <div class="ground"></div>
     <div class="photo" data-src="img/daniele-selfie.jpg" data-fallback="img/daniele-0.jpg"></div>
@@ -192,14 +197,13 @@ function drawDots(t){
     ctx.fillStyle=col; ctx.fillRect(OX+o.c*P,OY+o.r*P,SQ,SQ)}
   ctx.restore(); ctx.globalAlpha=1;
 }
-const T={a:0,b:7.5,c:13,d:16.5,d2:21,e:26,f:31,g:36.5,h:42,freeze:47.5,s:52.5,s2:56,s3:62,z:69,end:74};
+const T={a:0,b:14,c:19.5,d:23,d2:27.5,e:32.5,f:37.5,g:43,h:48.5,freeze:54,s:59,s2:62.5,s3:68.5,z:75.5,end:80.5};
 window.DURATION=T.end;
 window.render=function(t){
   show($('#a'),t<T.b?eo(seg(t,0,.4)):0);
-  const a1=eo(seg(t,.6,1.1)),a2=eo(seg(t,3.6,4.1));
-  $('#a1').style.opacity=a1;$('#a1').style.transform=`translateY(${(1-a1)*40}px)`;
-  $('#a2').style.opacity=a2;$('#a2').style.transform=`translateY(${(1-a2)*40}px)`;
-  $('#a .photo').style.transform=`scale(${1.08-.08*seg(t,0,T.b)})`;
+  { const ps=[...document.querySelectorAll('#a .op')], cs=[...document.querySelectorAll('#a .ocap')], dur=T.b/ps.length;
+    ps.forEach((p,k)=>{const a=k*dur; p.style.opacity=(t>=a&&t<a+dur)?1:0; p.style.transform=`scale(${1.08-.08*seg(t,a,a+dur)})`;
+      const c=cs[k], q=eo(seg(t,a+.3,a+.8)); c.style.opacity=(t<a+dur)?q:0; c.style.transform=`translateY(${(1-q)*40}px)`}); }
   show($('#b'),t>=T.b&&t<T.c?1:0); lines($('#b'),t,T.b+.3,.9);
   $('#b .photo').style.transform=`scale(${1.08-.08*seg(t,T.b,T.c)})`;
   show($('#c'),t>=T.c&&t<T.d?1:0); lines($('#c'),t,T.c+.3);
