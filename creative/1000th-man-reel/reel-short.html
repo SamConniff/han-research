@@ -213,7 +213,7 @@ function drawDots(t){
     ctx.fillStyle=col; ctx.fillRect(OX+o.c*P,OY+o.r*P,SQ,SQ)}
   ctx.restore(); ctx.globalAlpha=1;
 }
-const T={hk:0,a:4.6,b:6.9,c:10.3,d2:12.1,f:15.4,h:22.9,freeze:28.2,z:34.0,end:44.6};
+const T={hk:0,a:4.6,b:6.9,c:10.3,d2:13.15,f:16.45,h:23.95,freeze:29.25,z:35.05,end:45.65};
 window.DURATION=T.end;
 function at(scope,times){scope.querySelectorAll('.ln').forEach((l,i)=>{const a=times[Math.min(i,times.length-1)],p=eo(seg(window._t,a,a+.45));l.style.opacity=p;l.style.transform=`translateY(${(1-p)*40}px)`})}
 window.render=function(t){ window._t=t;
@@ -226,11 +226,11 @@ window.render=function(t){ window._t=t;
   $('#b .photo').style.transform=`scale(${1.1-.1*seg(t,T.b,T.c)})`;
   show($('#c'),t>=T.c&&t<T.d2?1:0); at($('#c'),[10.45]);
   $('#c .photo').style.transform=`scale(${1.12-.12*seg(t,T.c,T.d2)})`;
-  show($('#d2'),t>=T.d2&&t<T.f?1:0); at($('#d2'),[12.3]);
+  show($('#d2'),t>=T.d2&&t<T.f?1:0); at($('#d2'),[13.35]);
   { const ms=[...document.querySelectorAll('#d2 .mont')], hold=.9, dur=(T.f-T.d2-hold)/(ms.length-1);
     ms.forEach((m,k)=>{const a=T.d2+k*dur, b=k===ms.length-1?T.f:a+dur; m.style.opacity=(t>=a&&t<b)?1:0; m.style.transform=`scale(${1.1-.1*seg(t,a,b)})`}); }
   // threshold: faces light up one after another, each one triggering the next
-  show($('#f'),t>=T.f&&t<T.h?1:0); at($('#f'),[16.0,17.3,19.3]);
+  show($('#f'),t>=T.f&&t<T.h?1:0); at($('#f'),[17.05,18.35,20.35]);
   wall3.forEach((d,k)=>{const a=T.f+.2+k*0.075,p=eo(seg(t,a,a+.18));d.style.opacity=p;d.style.transform=`scale(${1.25-.25*p})`});
   // ticker
   show($('#h'),t>=T.h&&t<T.z?1:0);
@@ -244,8 +244,8 @@ window.render=function(t){ window._t=t;
   const sl=$('#slot'); const so=eo(seg(t,T.freeze,T.freeze+.4));
   sl.style.left=(sc.left-st.left)+'px';sl.style.top=(sc.top-st.top)+'px';sl.style.width='120px';sl.style.height='140px';
   sl.style.opacity=so; sl.style.transform=`scale(${1+1.2*eio(seg(t,T.freeze+.3,T.freeze+1.2))})`; sl.style.zIndex=5;
-  at($('#h'),[23.2,25.8,30.7]);
-  show($('#z'),t>=T.z?1:0); at($('#z'),[34.1,36.2,38.85,40.7]);
+  at($('#h'),[24.25,26.85,31.75]);
+  show($('#z'),t>=T.z?1:0); at($('#z'),[35.15,37.25,39.9,41.75]);
   let n;
   if(t<T.a) n=0; else if(t<T.b) n=1; else if(t<T.c) n=2;
   else if(t<T.d2) n=Math.round(2+18*eio(seg(t,T.c,T.c+1.2)));
