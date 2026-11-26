@@ -1,6 +1,6 @@
 const {chromium}=require('playwright');const fs=require('fs');const {spawn}=require('child_process');const path=require('path');
 const D=__dirname; const men=fs.readFileSync(D+'/men.json','utf8');
-fs.writeFileSync(D+'/_built.html',fs.readFileSync(D+'/reel.html','utf8').replace('__MEN__',men));
+fs.writeFileSync(D+'/_built.html',fs.readFileSync(D+'/'+(process.env.SRC||'reel.html'),'utf8').replace('__MEN__',men));
 const fps=+(process.env.FPS||30); const only=process.argv.slice(2); const out=process.env.OUT||'out.mp4';
 (async()=>{const b=await chromium.launch({args:['--allow-file-access-from-files']});const pg=await b.newPage({viewport:{width:1080,height:1920}});
  await pg.goto('file://'+D+'/_built.html'); await pg.evaluate('window.READY'); await pg.waitForTimeout(800); await pg.evaluate('render(0)');

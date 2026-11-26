@@ -1,0 +1,260 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>1000th Man Reel</title>
+<style>
+@font-face{font-family:'Inter';font-weight:100 900;src:url(fonts/inter-latin.woff2) format('woff2')}
+@font-face{font-family:'Inter Tight';font-weight:100 900;src:url(fonts/intertight-latin.woff2) format('woff2')}
+:root{--black:#0A0709;--pink:#E6007E;--pink-deep:#C8006D;--acid:#E4FF3D;--paper:#F3ECEF;
+  --display:'Inter Tight',Arial,sans-serif;--body:'Inter',Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--black)}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--black);color:var(--paper);font-family:var(--body)}
+.layer{position:absolute;inset:0;opacity:0}
+.ground{position:absolute;inset:0;background-color:var(--black);background-image:radial-gradient(circle at center,rgba(230,0,126,.32) 1px,transparent 1.3px);background-size:7px 7px}
+.disp{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.9}
+.block{position:absolute;left:0;right:0;bottom:0;background:var(--black);padding:48px 64px 70px;border-top:3px solid var(--pink)}
+.eyebrow{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:30px;color:var(--pink);margin-bottom:22px}
+.lede{font-size:56px;line-height:1.16;font-weight:500;max-width:950px}
+.lede b{font-weight:800}
+.small{font-size:44px}
+.acid{color:var(--acid)} .pink{color:var(--pink)}
+.ln{display:block;opacity:0}
+.photo{position:absolute;left:0;right:0;top:0;height:1400px;background-size:cover;background-position:center 30%;transform-origin:50% 40%}
+.ocap{position:absolute;left:64px;right:64px;top:48px;opacity:0}
+.photo.land{top:440px;height:960px}
+.photo.missing{background-image:url(img/ground-screen.jpg);filter:grayscale(1);opacity:.4}
+.todo{position:absolute;left:64px;top:620px;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:34px;color:var(--paper);display:none}
+.photo.missing + .todo{display:block}
+#count{position:absolute;right:0;top:56px;background:var(--black);padding:6px 64px 14px 30px;z-index:20;text-align:right}
+#count .n{font-family:var(--display);font-weight:900;font-size:150px;line-height:1;color:var(--acid);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+#count .l{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);margin-top:2px}
+#wm{position:absolute;left:0;top:56px;background:var(--black);padding:16px 26px 16px 64px;font-family:var(--display);font-weight:900;font-size:34px;letter-spacing:.06em;text-transform:uppercase;color:var(--paper);z-index:20}
+#wm span{color:var(--pink)}
+.wall{position:absolute;left:0;top:0;width:1080px;height:1400px;display:grid;grid-template-columns:repeat(9,120px);grid-template-rows:repeat(10,140px)}
+.wall div{background-size:cover;background-position:center 30%;opacity:0}
+.stat{position:absolute;left:64px;right:64px}
+.stat .big{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:200px;line-height:.85;letter-spacing:-.04em;color:var(--acid)}
+.stat .cap{font-size:50px;font-weight:500;line-height:1.15;margin-top:18px;padding-top:18px;border-top:2px solid var(--pink);max-width:900px}
+.say{position:absolute;left:64px;right:64px;top:440px}
+.say .disp{font-size:116px}
+.say .lede{margin-top:40px}
+#slot{position:absolute;opacity:0;display:flex;align-items:center;justify-content:center;background:var(--black);outline:3px solid var(--pink);outline-offset:-3px}
+#slot span{font-family:var(--display);font-weight:900;color:var(--acid);font-size:30px}
+/* scale */
+#dots{position:absolute;left:0;top:300px}
+#s .cap{position:absolute;left:64px;right:64px;top:1330px}
+#s .cap > div{position:absolute;left:0;right:0;top:0;opacity:0}
+#s .big{font-family:var(--display);font-weight:900;font-size:130px;line-height:.9;letter-spacing:-.03em;text-transform:uppercase}
+.key{position:absolute;left:64px;top:220px;font-family:var(--display);font-weight:800;font-size:28px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper)}
+.key i{display:inline-block;width:14px;height:14px;background:var(--acid);margin-right:14px;vertical-align:1px}
+.end{position:absolute;left:64px;right:64px;top:640px}
+</style></head>
+<body>
+<div id="stage">
+  <section class="layer" id="hk">
+    <div class="ground"></div>
+    <div class="say" style="top:600px">
+      <div class="disp ln" style="font-size:120px">Ever wanted to make a dent in the universe?</div>
+      <div class="lede ln" style="margin-top:50px">Here's the science of how.</div>
+    </div>
+  </section>
+  <section class="layer" id="a">
+    <div class="ground"></div>
+    <div class="photo op" data-src="img/sam-harry.jpg" style="background-position:center 55%"></div>
+    <div class="photo op" data-src="img/sam-ig-1.jpg" style="top:330px;height:1070px;background-position:center 30%"></div>
+    <div class="photo op" data-src="img/sam-ig-2.jpg" style="top:330px;height:1070px;background-position:center 30%"></div>
+    <div class="photo op" data-src="img/sam-ig-3.jpg" style="top:330px;height:1070px;background-position:center 30%"></div>
+    <div class="block" style="height:520px">
+      <div class="ocap"><div class="eyebrow">2023</div><div class="disp" style="font-size:96px">I got my nails painted by accident.</div></div>
+      <div class="ocap"><div class="lede">The first time I got my nails painted, I felt like an idiot.</div></div>
+      <div class="ocap"><div class="lede">For months, I was the only man I knew.</div></div>
+      <div class="ocap"><div class="lede">I kept going back anyway.</div></div>
+    </div>
+  </section>
+  <section class="layer" id="b">
+    <div class="ground"></div>
+    <div class="photo" data-src="img/daniele-selfie.jpg" data-fallback="img/daniele-0.jpg"></div>
+    <div class="block" style="height:470px">
+      <div class="eyebrow ln">November 2024</div>
+      <div class="disp ln" style="font-size:112px">Then Daniele.</div>
+      <div class="lede ln" style="margin-top:30px"><b class="pink">My first follower.</b></div>
+    </div>
+  </section>
+
+  <section class="layer" id="c">
+    <div class="ground"></div>
+    <div class="photo" data-src="img/first-20.jpg" data-fallback="img/group-20.jpg" style="background-position:center 40%"></div>
+    <div class="block" style="height:520px"><div class="disp ln" style="font-size:150px">Then twenty.</div></div>
+  </section>
+
+  <section class="layer" id="d">
+    <div class="ground"></div>
+    <div class="wall" id="wall"></div>
+    <div class="block" style="height:520px"><div class="disp ln" style="font-size:150px">Then a hundred.</div></div>
+  </section>
+
+  <section class="layer" id="d2">
+    <div class="ground"></div>
+    <div class="photo mont land" data-src="img/groups/g01.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont" data-src="img/groups/u-trio.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont land" data-src="img/groups/g03.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont" data-src="img/groups/u-vitacoco.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont land" data-src="img/groups/g04.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont" data-src="img/groups/g06.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont" data-src="img/g3-salon.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont land" data-src="img/groups/u-pub.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont land" data-src="img/g5-stage.jpg" style="background-position:center 45%"></div>
+    <div class="block" style="height:520px"><div class="disp ln" style="font-size:150px">Then hundreds.</div></div>
+  </section>
+  <section class="layer" id="e">
+    <div class="ground"></div>
+    <div class="eyebrow ln" style="position:absolute;left:64px;top:430px">What our past study found</div>
+    <div class="stat ln" style="top:520px"><div class="big">Halved</div><div class="cap">Men's fear of judgement</div></div>
+    <div class="stat ln" style="top:1000px"><div class="big">Doubled</div><div class="cap">Their willingness to stand up for others</div></div>
+  </section>
+
+  <section class="layer" id="f">
+    <div class="ground"></div>
+    <div class="wall" id="wall3" style="opacity:.32"></div>
+    <div class="say" style="top:520px">
+      <div class="eyebrow ln">Here's the thing</div>
+      <div class="disp ln">Everyone has a threshold.</div>
+      <div class="lede ln" style="background:var(--black);padding:10px 0">It's not what you think. It's the man who goes <b class="pink">before you.</b></div>
+    </div>
+  </section>
+  <section class="layer" id="g">
+    <div class="ground"></div>
+    <div class="say">
+      <div class="lede ln" style="margin-top:0">Every man who goes lowers the threshold for the next one.</div>
+      <div class="lede ln">Each one makes the next one more likely.</div>
+      <div class="disp ln" style="margin-top:50px">That's how weird becomes <span class="pink">normal.</span></div>
+    </div>
+  </section>
+
+  <section class="layer" id="h">
+    <div class="ground"></div>
+    <div class="wall" id="wall2"></div>
+    <div id="slot"><span>1,000</span></div>
+    <div class="block" style="height:520px">
+      <div class="eyebrow ln">Signed up so far: over 970</div>
+      <div class="disp ln" style="font-size:104px">Any day now: <span class="acid">1,000.</span></div>
+      <div class="lede ln" style="margin-top:22px">A thousand is where odd starts to look <b class="pink">normal.</b></div>
+    </div>
+  </section>
+
+  <section class="layer" id="s">
+    <div class="ground" style="opacity:.5"></div>
+    <div class="key" id="key"><i></i>One square = 1,000 men</div>
+    <canvas id="dots" width="1080" height="1000"></canvas>
+    <div class="cap">
+      <div id="s1"><div class="big acid">1,000 men.</div><div class="lede small" style="margin-top:24px">Any day now. One square.</div></div>
+      <div id="s2"><div class="big pink">500,000.</div><div class="lede small" style="margin-top:24px">Our target. Tipping-point research puts it at a committed minority of 3.5% to 10%. This is about 6%.</div></div>
+      <div id="s3"><div class="big">8.5 million</div><div class="lede small" style="margin-top:24px">midlife men in the UK. Reach the committed minority, and research suggests the norm can flip.</div></div>
+    </div>
+  </section>
+
+  <section class="layer" id="z">
+    <div class="ground"></div>
+    <div class="end" style="top:520px">
+      <div class="disp ln" style="font-size:150px">Be the<br><span class="acid">1,000th</span><br>man.</div>
+      <div class="lede ln" style="margin-top:56px;padding-top:28px;border-top:3px solid var(--pink)">Daniele and Sam will thank you personally.</div>
+      <div class="disp ln pink" style="font-size:84px;margin-top:40px">Is it you? Or a man you know?</div>
+      <div class="eyebrow ln" style="margin-top:44px;font-size:36px;color:var(--paper)">Sign up or nominate a man: hard-as-nails.com</div>
+    </div>
+  </section>
+
+  <div id="wm">Hard As <span>Nails</span></div>
+  <div id="count"><div class="n">1</div><div class="l">signed up</div></div>
+</div>
+<script>
+const MEN = __MEN__;
+const $=s=>document.querySelector(s);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>clamp((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const lerp=(a,b,p)=>a+(b-a)*p;
+let rnd=11; const rand=()=>{rnd=(rnd*16807)%2147483647;return rnd/2147483647};
+const loads=[];
+document.querySelectorAll('.photo').forEach(el=>{loads.push(new Promise(res=>{
+  const tryS=(src,fb)=>{const im=new Image();im.onload=()=>{el.style.backgroundImage=`url(${src})`;res()};
+    im.onerror=()=>{if(fb)tryS(fb,null);else{el.classList.add('missing');res()}};im.src=src};
+  tryS(el.dataset.src,el.dataset.fallback)}))});
+const shuffled=MEN.map((_,i)=>i).sort(()=>rand()-.5);
+const tiles=shuffled.map(i=>{const d=document.createElement('div');d.style.backgroundImage=`url(img/100men/${MEN[i].slug}-320.webp)`;$('#wall').appendChild(d);return d});
+const wall3=[];for(let k=0;k<90;k++){const d=document.createElement('div');d.style.backgroundImage=`url(img/100men/${MEN[(k*11)%MEN.length].slug}-320.webp)`;$('#wall3').appendChild(d);wall3.push(d)}
+const SLOT=49; const cells=[];
+for(let k=0;k<90;k++){const d=document.createElement('div');$('#wall2').appendChild(d);cells.push(d)}
+const fmt=n=>n.toLocaleString('en-GB');
+function show(el,o){el.style.opacity=o}
+function lines(scope,t,start,step=.5){scope.querySelectorAll('.ln').forEach((l,i)=>{const p=eo(seg(t,start+i*step,start+i*step+.5));l.style.opacity=p;l.style.transform=`translateY(${(1-p)*40}px)`})}
+// scale field: 8,500 squares, each = 1,000 men. 85 x 100 at 11px pitch, centred.
+const COLS=85, ROWS=100, P=11.2, SQ=8.4, OX=(1080-COLS*P)/2+1, OY=0;
+const ctx=$('#dots').getContext('2d');
+// target 500 squares: a block in the middle-left, revealed in a ripple from the first square
+const FIRST={c:42,r:50};
+const order=[];for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++)order.push({c,r,d:Math.hypot(c-FIRST.c,(r-FIRST.r)*1.0)+rand()*1.5});
+order.sort((a,b)=>a.d-b.d);
+function drawDots(t){
+  ctx.clearRect(0,0,1080,1000);
+  const p1=eo(seg(t,T.s+.2,T.s+.9));               // first square
+  const n2=Math.floor(500*eio(seg(t,T.s2,T.s2+2.2)));  // up to 500
+  const n3=Math.floor(8500*eio(seg(t,T.s3,T.s3+2.6))); // up to 8,500
+  // zoom: start close on the first square, pull out to the whole field
+  const z=eio(seg(t,T.s+.6,T.s2+.4)); const sc=lerp(10,1,z);
+  const cx=OX+FIRST.c*P+SQ/2, cy=OY+FIRST.r*P+SQ/2;
+  ctx.save(); ctx.translate(540,500); ctx.scale(sc,sc); ctx.translate(-cx,-cy);
+  for(let i=Math.max(n3,n2,1)-1;i>=0;i--){const o=order[i];
+    let col;
+    if(i===0){ctx.globalAlpha=p1;col='#E4FF3D'}
+    else if(i<n2){ctx.globalAlpha=1;col='#E6007E'}
+    else {ctx.globalAlpha=.55;col='#F3ECEF'}
+    ctx.fillStyle=col; ctx.fillRect(OX+o.c*P,OY+o.r*P,SQ,SQ)}
+  ctx.restore(); ctx.globalAlpha=1;
+}
+const T={hk:0,a:4.6,b:6.9,c:10.3,d2:12.1,f:15.4,h:22.9,freeze:28.2,z:34.0,end:44.6};
+window.DURATION=T.end;
+function at(scope,times){scope.querySelectorAll('.ln').forEach((l,i)=>{const a=times[Math.min(i,times.length-1)],p=eo(seg(window._t,a,a+.45));l.style.opacity=p;l.style.transform=`translateY(${(1-p)*40}px)`})}
+window.render=function(t){ window._t=t;
+  show($('#hk'),t<T.a?1:0); at($('#hk'),[.3,2.85]);
+  show($('#a'),t>=T.a&&t<T.b?1:0);
+  { const ps=[...document.querySelectorAll('#a .op')], cs=[...document.querySelectorAll('#a .ocap')];
+    ps.forEach((p,k)=>{p.style.opacity=k===0?1:0; cs[k].style.opacity=0});
+    ps[0].style.transform=`scale(${1.1-.1*seg(t,T.a,T.b)})`; const q=eo(seg(t,T.a+.15,T.a+.6)); cs[0].style.opacity=q; cs[0].style.transform=`translateY(${(1-q)*40}px)`; }
+  show($('#b'),t>=T.b&&t<T.c?1:0); at($('#b'),[7.05,7.15,9.1]);
+  $('#b .photo').style.transform=`scale(${1.1-.1*seg(t,T.b,T.c)})`;
+  show($('#c'),t>=T.c&&t<T.d2?1:0); at($('#c'),[10.45]);
+  $('#c .photo').style.transform=`scale(${1.12-.12*seg(t,T.c,T.d2)})`;
+  show($('#d2'),t>=T.d2&&t<T.f?1:0); at($('#d2'),[12.3]);
+  { const ms=[...document.querySelectorAll('#d2 .mont')], dur=(T.f-T.d2)/ms.length;
+    ms.forEach((m,k)=>{const a=T.d2+k*dur; m.style.opacity=(t>=a&&t<a+dur)||(k===ms.length-1&&t>=a)?1:0; m.style.transform=`scale(${1.1-.1*seg(t,a,a+dur)})`}); }
+  // threshold: faces light up one after another, each one triggering the next
+  show($('#f'),t>=T.f&&t<T.h?1:0); at($('#f'),[16.0,17.3,19.3]);
+  wall3.forEach((d,k)=>{const a=T.f+.2+k*0.075,p=eo(seg(t,a,a+.18));d.style.opacity=p;d.style.transform=`scale(${1.25-.25*p})`});
+  // ticker
+  show($('#h'),t>=T.h&&t<T.z?1:0);
+  const run=seg(t,T.h,T.freeze), frame=Math.floor(t*(run<1?lerp(8,24,run):0.0001));
+  cells.forEach((d,k)=>{
+    if(k===SLOT){d.style.opacity=0;return}
+    const on=eo(seg(t,T.h+k*0.006,T.h+k*0.006+.2));
+    const idx=run<1?(k*7+frame*13+k*frame)%MEN.length:(k*7)%MEN.length;
+    d.style.backgroundImage=`url(img/100men/${MEN[idx].slug}-320.webp)`; d.style.opacity=on*(t>=T.freeze?.55:1)});
+  const sc=$('#wall2').children[SLOT].getBoundingClientRect(), st=$('#stage').getBoundingClientRect();
+  const sl=$('#slot'); const so=eo(seg(t,T.freeze,T.freeze+.4));
+  sl.style.left=(sc.left-st.left)+'px';sl.style.top=(sc.top-st.top)+'px';sl.style.width='120px';sl.style.height='140px';
+  sl.style.opacity=so; sl.style.transform=`scale(${1+1.2*eio(seg(t,T.freeze+.3,T.freeze+1.2))})`; sl.style.zIndex=5;
+  at($('#h'),[23.2,25.8,30.7]);
+  show($('#z'),t>=T.z?1:0); at($('#z'),[34.1,36.2,38.85,40.7]);
+  let n;
+  if(t<T.a) n=0; else if(t<T.b) n=1; else if(t<T.c) n=2;
+  else if(t<T.d2) n=Math.round(2+18*eio(seg(t,T.c,T.c+1.2)));
+  else if(t<T.f) n=Math.round(20+389*eio(seg(t,T.d2,T.f-.3)));
+  else if(t<T.h) n=409;
+  else if(t<T.freeze) n=Math.round(409+564*eio(seg(t,T.h+.3,T.freeze)));
+  else n=973;
+  $('#count .n').textContent=fmt(n);
+  $('#count').style.opacity=(t>=T.a&&t<T.z)?1:0;
+};
+window.READY=Promise.all([document.fonts.ready,...loads]).then(()=>new Promise(r=>setTimeout(r,500)));
+</script>
+</body></html>
