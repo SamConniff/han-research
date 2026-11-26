@@ -39,7 +39,7 @@ html,body{background:var(--black)}
 .say .disp{font-size:116px}
 .say .lede{margin-top:40px}
 #slot{position:absolute;opacity:0;display:flex;align-items:center;justify-content:center;background:var(--black);outline:3px solid var(--pink);outline-offset:-3px}
-#slot span{font-family:var(--display);font-weight:900;color:var(--acid);font-size:84px}
+#slot span{font-family:var(--display);font-weight:900;color:var(--acid);font-size:30px}
 /* scale */
 #dots{position:absolute;left:0;top:300px}
 #s .cap{position:absolute;left:64px;right:64px;top:1330px}
@@ -51,6 +51,13 @@ html,body{background:var(--black)}
 </style></head>
 <body>
 <div id="stage">
+  <section class="layer" id="hk">
+    <div class="ground"></div>
+    <div class="say" style="top:600px">
+      <div class="disp ln" style="font-size:120px">Ever wanted to make a dent in the universe?</div>
+      <div class="lede ln" style="margin-top:50px">Here's the science of how.</div>
+    </div>
+  </section>
   <section class="layer" id="a">
     <div class="ground"></div>
     <div class="photo op" data-src="img/sam-harry.jpg" style="background-position:center 55%"></div>
@@ -88,11 +95,17 @@ html,body{background:var(--black)}
 
   <section class="layer" id="d2">
     <div class="ground"></div>
+    <div class="photo mont land" data-src="img/groups/g01.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont" data-src="img/groups/u-trio.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont land" data-src="img/groups/g03.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont" data-src="img/groups/u-vitacoco.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont land" data-src="img/groups/g04.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont" data-src="img/groups/g06.jpg" style="background-position:center 45%"></div>
     <div class="photo mont" data-src="img/g3-salon.jpg" style="background-position:center 45%"></div>
-    <div class="photo mont land" data-src="img/g5-stage.jpg" style="background-position:center 60%"></div>
+    <div class="photo mont land" data-src="img/groups/u-pub.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont land" data-src="img/g5-stage.jpg" style="background-position:center 45%"></div>
     <div class="block" style="height:520px"><div class="disp ln" style="font-size:150px">Then hundreds.</div></div>
   </section>
-
   <section class="layer" id="e">
     <div class="ground"></div>
     <div class="eyebrow ln" style="position:absolute;left:64px;top:430px">What our past study found</div>
@@ -121,10 +134,10 @@ html,body{background:var(--black)}
   <section class="layer" id="h">
     <div class="ground"></div>
     <div class="wall" id="wall2"></div>
-    <div id="slot"><span>?</span></div>
+    <div id="slot"><span>1,000</span></div>
     <div class="block" style="height:520px">
-      <div class="eyebrow ln">This week</div>
-      <div class="disp ln" style="font-size:104px">One more makes it <span class="acid">1,000.</span></div>
+      <div class="eyebrow ln">Signed up so far: over 970</div>
+      <div class="disp ln" style="font-size:104px">Any day now: <span class="acid">1,000.</span></div>
       <div class="disp ln pink" style="font-size:104px;margin-top:22px">Is that you?</div>
     </div>
   </section>
@@ -134,7 +147,7 @@ html,body{background:var(--black)}
     <div class="key" id="key"><i></i>One square = 1,000 men</div>
     <canvas id="dots" width="1080" height="1000"></canvas>
     <div class="cap">
-      <div id="s1"><div class="big acid">1,000 men.</div><div class="lede small" style="margin-top:24px">This week. One square.</div></div>
+      <div id="s1"><div class="big acid">1,000 men.</div><div class="lede small" style="margin-top:24px">Any day now. One square.</div></div>
       <div id="s2"><div class="big pink">500,000.</div><div class="lede small" style="margin-top:24px">Our target. Tipping-point research puts it at a committed minority of 3.5% to 10%. This is about 6%.</div></div>
       <div id="s3"><div class="big">8.5 million</div><div class="lede small" style="margin-top:24px">midlife men in the UK. Reach the committed minority, and research suggests the norm can flip.</div></div>
     </div>
@@ -197,12 +210,13 @@ function drawDots(t){
     ctx.fillStyle=col; ctx.fillRect(OX+o.c*P,OY+o.r*P,SQ,SQ)}
   ctx.restore(); ctx.globalAlpha=1;
 }
-const T={a:0,b:14,c:19.5,d:23,d2:27.5,e:32.5,f:37.5,g:43,h:48.5,freeze:54,s:59,s2:62.5,s3:68.5,z:75.5,end:80.5};
+const T={hk:0,a:3.5,b:17.5,c:23,d:26.5,d2:31,e:37.5,f:42.5,g:48,h:53.5,freeze:59,s:64,s2:67.5,s3:73.5,z:80.5,end:85.5};
 window.DURATION=T.end;
 window.render=function(t){
-  show($('#a'),t<T.b?eo(seg(t,0,.4)):0);
-  { const ps=[...document.querySelectorAll('#a .op')], cs=[...document.querySelectorAll('#a .ocap')], dur=T.b/ps.length;
-    ps.forEach((p,k)=>{const a=k*dur; p.style.opacity=(t>=a&&t<a+dur)?1:0; p.style.transform=`scale(${1.08-.08*seg(t,a,a+dur)})`;
+  show($('#hk'),t<T.a?1:0); lines($('#hk'),t,.2,1.2);
+  show($('#a'),t>=T.a&&t<T.b?1:0);
+  { const ps=[...document.querySelectorAll('#a .op')], cs=[...document.querySelectorAll('#a .ocap')], dur=(T.b-T.a)/ps.length;
+    ps.forEach((p,k)=>{const a=T.a+k*dur; p.style.opacity=(t>=a&&t<a+dur)?1:0; p.style.transform=`scale(${1.08-.08*seg(t,a,a+dur)})`;
       const c=cs[k], q=eo(seg(t,a+.3,a+.8)); c.style.opacity=(t<a+dur)?q:0; c.style.transform=`translateY(${(1-q)*40}px)`}); }
   show($('#b'),t>=T.b&&t<T.c?1:0); lines($('#b'),t,T.b+.3,.9);
   $('#b .photo').style.transform=`scale(${1.08-.08*seg(t,T.b,T.c)})`;
@@ -237,15 +251,15 @@ window.render=function(t){
     const p=eo(seg(t,a,a+.5))*(1-seg(t,b-.3,b)); const el=$(id); el.style.opacity=p; el.style.transform=`translateY(${(1-eo(seg(t,a,a+.5)))*40}px)`});
   show($('#z'),t>=T.z?1:0); lines($('#z'),t,T.z+.2,.6);
   let n;
-  if(t<T.b) n=1; else if(t<T.c) n=2;
+  if(t<T.a) n=0; else if(t<T.b) n=1; else if(t<T.c) n=2;
   else if(t<T.d) n=Math.round(2+18*eio(seg(t,T.c,T.c+1.5)));
   else if(t<T.d2) n=100;
   else if(t<T.e) n=Math.round(100+400*eio(seg(t,T.d2,T.e-.5)));
   else if(t<T.h) n=500;
-  else if(t<T.freeze) n=Math.round(500+499*eio(seg(t,T.h+.3,T.freeze)));
-  else n=999;
+  else if(t<T.freeze) n=Math.round(500+473*eio(seg(t,T.h+.3,T.freeze)));
+  else n=973;
   $('#count .n').textContent=fmt(n);
-  $('#count').style.opacity=t<T.s?1:0;
+  $('#count').style.opacity=(t>=T.a&&t<T.s)?1:0;
 };
 window.READY=Promise.all([document.fonts.ready,...loads]).then(()=>new Promise(r=>setTimeout(r,500)));
 </script>
