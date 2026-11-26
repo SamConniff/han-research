@@ -101,9 +101,10 @@ html,body{background:var(--black)}
     <div class="photo mont" data-src="img/groups/u-vitacoco.jpg" style="background-position:center 45%"></div>
     <div class="photo mont land" data-src="img/groups/g04.jpg" style="background-position:center 45%"></div>
     <div class="photo mont" data-src="img/groups/g06.jpg" style="background-position:center 45%"></div>
-    <div class="photo mont" data-src="img/g3-salon.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont land" data-src="img/groups/u-salon-claws.jpg" style="background-position:center 45%"></div>
     <div class="photo mont land" data-src="img/groups/u-pub.jpg" style="background-position:center 45%"></div>
     <div class="photo mont land" data-src="img/g5-stage.jpg" style="background-position:center 45%"></div>
+    <div class="photo mont land" data-src="img/groups/u-lbc.jpg" style="background-position:center 40%"></div>
     <div class="block" style="height:520px"><div class="disp ln" style="font-size:150px">Then hundreds.</div></div>
   </section>
   <section class="layer" id="e">
@@ -226,8 +227,8 @@ window.render=function(t){ window._t=t;
   show($('#c'),t>=T.c&&t<T.d2?1:0); at($('#c'),[10.45]);
   $('#c .photo').style.transform=`scale(${1.12-.12*seg(t,T.c,T.d2)})`;
   show($('#d2'),t>=T.d2&&t<T.f?1:0); at($('#d2'),[12.3]);
-  { const ms=[...document.querySelectorAll('#d2 .mont')], dur=(T.f-T.d2)/ms.length;
-    ms.forEach((m,k)=>{const a=T.d2+k*dur; m.style.opacity=(t>=a&&t<a+dur)||(k===ms.length-1&&t>=a)?1:0; m.style.transform=`scale(${1.1-.1*seg(t,a,a+dur)})`}); }
+  { const ms=[...document.querySelectorAll('#d2 .mont')], hold=.9, dur=(T.f-T.d2-hold)/(ms.length-1);
+    ms.forEach((m,k)=>{const a=T.d2+k*dur, b=k===ms.length-1?T.f:a+dur; m.style.opacity=(t>=a&&t<b)?1:0; m.style.transform=`scale(${1.1-.1*seg(t,a,b)})`}); }
   // threshold: faces light up one after another, each one triggering the next
   show($('#f'),t>=T.f&&t<T.h?1:0); at($('#f'),[16.0,17.3,19.3]);
   wall3.forEach((d,k)=>{const a=T.f+.2+k*0.075,p=eo(seg(t,a,a+.18));d.style.opacity=p;d.style.transform=`scale(${1.25-.25*p})`});
